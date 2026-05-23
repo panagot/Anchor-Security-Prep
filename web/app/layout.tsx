@@ -23,11 +23,12 @@ export const metadata: Metadata = {
   },
   description:
     "Pre-audit static analysis for Anchor and Solana programs. 26 security rules, SARIF export, and GitHub Actions integration.",
-  metadataBase: new URL("https://github.com/panagot/Anchor-Security-Prep"),
+  metadataBase: new URL("https://anchor-security-prep.vercel.app"),
   openGraph: {
     title: "Anchor Security Prep",
     description: "Pre-audit static analysis for Anchor and Solana programs",
     type: "website",
+    url: "https://anchor-security-prep.vercel.app",
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],

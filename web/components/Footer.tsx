@@ -18,7 +18,7 @@ export function Footer() {
             GitHub
           </a>
         </nav>
-        <p>v0.2 · 26 rules · SARIF · open source</p>
+        <p>v0.2 · 26 rules · <a href="https://anchor-security-prep.vercel.app" className="hover:text-[var(--amber)]">Live demo</a></p>
       </div>
     </footer>
   );

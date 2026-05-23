@@ -138,11 +138,11 @@ npm run dev
 
 ### Deploy to Vercel
 
-1. Import [panagot/Anchor-Security-Prep](https://github.com/panagot/Anchor-Security-Prep) at [vercel.com/new](https://vercel.com/new)
-2. Set **Root Directory** to `web`
-3. Deploy
+**Live demo:** [anchor-security-prep.vercel.app](https://anchor-security-prep.vercel.app)
 
-The hosted demo serves bundled sample reports — no CLI required for `/compare` and `/rules`. Live scanning requires the Rust CLI locally.
+1. Import [panagot/Anchor-Security-Prep](https://github.com/panagot/Anchor-Security-Prep) at [vercel.com/new](https://vercel.com/new)
+2. Set **Root Directory** to `web` *(recommended)* — or use the root `vercel.json` which builds from `web/` automatically
+3. Deploy — no environment variables required
 
 ---
 
