@@ -3,7 +3,7 @@ import path from "path";
 
 import type { ScanReport } from "./types";
 
-const ROOT = path.join(process.cwd(), "..");
+const ROOT = process.cwd();
 const STORE = path.join(ROOT, ".anchor-prep", "reports");
 
 export function ensureStore() {

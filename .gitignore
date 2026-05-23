@@ -7,12 +7,11 @@
 .anchor-prep/reports/
 reports/
 
-# Node
+# Node / Next.js
 node_modules/
-web/node_modules/
-web/.next/
-web/out/
-web/.vercel/
+.next/
+out/
+.vercel/
 
 # OS / IDE
 .DS_Store
