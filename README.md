@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/icon.svg" alt="Anchor Security Prep" width="80" height="80" />
+  <img src="web/app/icon.svg" alt="Anchor Security Prep" width="80" height="80" />
 </p>
 
 <h1 align="center">Anchor Security Prep</h1>
@@ -120,6 +120,7 @@ Formats:   reports/report.json · report.md · report.sarif
 Interactive report explorer built with Next.js 15.
 
 ```bash
+cd web
 npm install
 npm run dev
 # → http://localhost:3001
@@ -140,8 +141,11 @@ npm run dev
 **Live demo:** [anchor-security-prep.vercel.app](https://anchor-security-prep.vercel.app)
 
 1. Import [panagot/Anchor-Security-Prep](https://github.com/panagot/Anchor-Security-Prep) at [vercel.com/new](https://vercel.com/new)
-2. Leave **Root Directory** as **`.`** (repo root — Next.js is at the top level)
-3. Deploy — no environment variables needed
+2. Set **Root Directory** to **`web`** ← required
+3. Leave Build Command and Output Directory **empty** (defaults)
+4. Deploy
+
+> **404 fix:** See [docs/VERCEL.md](docs/VERCEL.md) — wrong Root Directory or custom Output Directory causes 404.
 
 The hosted demo serves bundled sample reports — no CLI required for `/compare` and `/rules`.
 
@@ -212,9 +216,10 @@ flowchart LR
 ```
 Anchor-Security-Prep/
 ├── cli/                  # Rust scanner (anchor-prep binary)
-├── app/                  # Next.js App Router pages
-├── components/           # Dashboard UI components
-├── public/               # Static assets + bundled sample reports
+├── web/                  # Next.js dashboard ← Vercel root
+│   ├── app/
+│   ├── components/
+│   └── public/
 ├── examples/
 │   ├── vulnerable-program/
 │   └── clean-program/
@@ -232,10 +237,10 @@ Anchor-Security-Prep/
 cargo test -p anchor-prep
 
 # Build web dashboard
-npm run build
+cd web && npm run build
 
-# Regenerate bundled rules for offline dashboard
-cargo run -p anchor-prep -- rules --json > public/rules.json
+# Regenerate bundled rules
+cargo run -p anchor-prep -- rules --json > web/public/rules.json
 ```
 
 ---

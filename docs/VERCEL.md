@@ -1,22 +1,49 @@
 # Vercel deployment
 
-The Next.js dashboard lives at the **repository root** (`app/`, `package.json`, etc.).
+## Required settings
+
+In [Vercel Dashboard](https://vercel.com) → **anchor-security-prep** → **Settings → General**:
+
+| Setting | Value |
+|---------|-------|
+| **Root Directory** | `web` |
+| **Framework Preset** | Next.js |
+| **Build Command** | *(leave empty — use default)* |
+| **Output Directory** | *(leave empty — use default)* |
+| **Install Command** | *(leave empty — use default)* |
+
+> **Critical:** Do not set Output Directory to `.next` — Vercel manages Next.js output automatically. A custom output path causes 404 errors.
 
 ## Deploy
 
-1. Import [panagot/Anchor-Security-Prep](https://github.com/panagot/Anchor-Security-Prep) at [vercel.com/new](https://vercel.com/new)
-2. **Root Directory:** leave as `.` (default)
-3. **Framework:** Next.js (auto-detected)
-4. Deploy — no environment variables required
+1. Connect GitHub repo: `panagot/Anchor-Security-Prep`
+2. Set **Root Directory** to `web` as above
+3. Deploy branch `main`
+4. Production URL: https://anchor-security-prep.vercel.app
 
-## Verify
+## If you still see 404
 
-- https://anchor-security-prep.vercel.app/
-- https://anchor-security-prep.vercel.app/compare
-- https://anchor-security-prep.vercel.app/rules
+1. **Settings → General → Root Directory** must be exactly `web` (not `.`, not empty)
+2. **Settings → Build & Development** → clear any overrides for Build Command / Output Directory
+3. **Deployments** → Redeploy latest commit (not an old one)
+4. If stuck: delete the Vercel project and re-import from GitHub with Root Directory = `web`
 
-## Notes
+## Repo layout
 
-- Live scanning (`/api/scan`) requires the Rust CLI and only works locally
-- Hosted demo uses bundled reports in `public/samples/`
-- If you previously set Root Directory to `web`, reset it to `.` and redeploy
+```
+Anchor-Security-Prep/
+├── cli/           ← Rust scanner (not deployed to Vercel)
+├── web/           ← Next.js app (Vercel Root Directory)
+│   ├── app/
+│   ├── package.json
+│   └── ...
+└── examples/
+```
+
+## What works on Vercel
+
+| Route | Works |
+|-------|-------|
+| `/`, `/compare`, `/rules` | Yes (bundled samples) |
+| `/report/[id]` | Yes (sample reports) |
+| `/api/scan` | No (needs local Rust CLI) |

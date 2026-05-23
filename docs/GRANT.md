@@ -119,8 +119,7 @@ Already built and demo-ready locally:
 ```
 anchor-security-prep/
   cli/           # Rust scanner — 26 rules, SARIF, 10 commands
-  app/           # Next.js dashboard — scan, compare, report, rules
-  public/        # Static assets + bundled sample reports
+  web/           # Next.js dashboard (Vercel Root Directory: web)
   fixtures/      # Per-rule regression snippets (ASP001–ASP026)
   examples/      # Vulnerable (20+ findings) + clean (0 high/crit)
   templates/     # GitHub Action workflow

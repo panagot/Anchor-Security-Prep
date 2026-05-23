@@ -7,11 +7,15 @@
 .anchor-prep/reports/
 /reports/
 
-# Node / Next.js
-node_modules/
-.next/
-out/
-.vercel/
+# Node / Next.js (web dashboard)
+web/node_modules/
+web/.next/
+web/out/
+web/.vercel/
+
+# Stray root artifacts (if build run from wrong directory)
+/node_modules/
+/.next/
 
 # OS / IDE
 .DS_Store
