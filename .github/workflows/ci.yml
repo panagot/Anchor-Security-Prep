@@ -12,7 +12,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo test -p anchor-prep
-      - run: cargo run -p anchor-prep -- scan examples/vulnerable-program --format all
+      - run: cargo run -p anchor-prep -- scan examples/clean-program --format json
+      - name: Vulnerable example must exit 2 (findings above --fail-on high)
+        run: |
+          set +e
+          cargo run -p anchor-prep -- scan examples/vulnerable-program --format json
+          code=$?
+          if [ "$code" -ne 2 ]; then
+            echo "Expected exit code 2, got $code"
+            exit 1
+          fi
 
   web:
     runs-on: ubuntu-latest
