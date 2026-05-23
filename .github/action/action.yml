@@ -25,7 +25,7 @@ runs:
       shell: bash
       run: |
         VERSION="${{ inputs.version }}"
-        URL="https://github.com/anchor-security-prep/anchor-prep/releases/download/${VERSION}/anchor-prep-linux-x86_64"
+        URL="https://github.com/panagot/Anchor-Security-Prep/releases/download/${VERSION}/anchor-prep-linux-x64"
         curl -fsSL "$URL" -o anchor-prep || echo "Release binary not yet published — building from source"
         if [ ! -f anchor-prep ]; then
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y

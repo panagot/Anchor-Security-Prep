@@ -91,7 +91,7 @@ Reports are written to the output directory as `report.json`, `report.md`, and `
 ```
 Report ID: 0297f326-187e-4fec-8cd9-4b7406759ea8
 Project:   examples/vulnerable-program
-Findings:  41 total · 8+ high/critical
+Findings:  41 total · 29 high/critical
 Rules run: 26
 Formats:   reports/report.json · report.md · report.sarif
 ```

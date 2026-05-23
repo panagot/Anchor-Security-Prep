@@ -102,7 +102,7 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 
 **Acceptance criteria:**
 - `cargo test -p anchor-prep` passes (fixtures + integration)
-- Vulnerable example: 20+ findings, 8+ high/critical
+- Vulnerable example: 40+ findings, 29 high/critical
 - Clean example: 0 high/critical
 - Published release binaries (linux/mac/win)
 

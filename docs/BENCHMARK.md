@@ -54,7 +54,7 @@ High/critical: **0** — hardened reference implementation.
 |--------|------:|
 | Findings delta (vulnerable − clean) | 40 |
 | High/critical delta | 29 |
-| Rules with fixtures | 26 / 26 |
+| Rules with fixtures | 7 / 26 (M1 target: 26 / 26) |
 
 ---
 
