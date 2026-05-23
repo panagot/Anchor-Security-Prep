@@ -2,9 +2,10 @@ import { PageHeader } from "@/components/PageHeader";
 import { CopyButton } from "@/components/CopyButton";
 
 const CLI = `anchor-prep scan ./my-project --format all --fail-on high
+anchor-prep baseline save . --out .anchor-prep/baseline.json
+anchor-prep baseline diff . --baseline .anchor-prep/baseline.json
 anchor-prep rules --json
-anchor-prep init
-anchor-prep audit-prep .`;
+anchor-prep init`;
 
 const GHA = `name: Anchor Security Prep
 
@@ -67,7 +68,8 @@ export default function IntegrationsPage() {
             <CopyButton text={GHA} label="Copy YAML" />
           </div>
           <p className="text-xs leading-relaxed text-[var(--ink-muted)]">
-            Run <code className="text-[var(--amber)]">anchor-prep init</code> to scaffold the workflow, or copy this template:
+            Run <code className="text-[var(--amber)]">anchor-prep init</code> to scaffold the workflow. Use{" "}
+            <code className="text-[var(--amber)]">baseline diff</code> to suppress known findings and fail only on regressions.
           </p>
           <pre className="code-block p-4 text-xs leading-relaxed overflow-x-auto">{GHA}</pre>
         </div>

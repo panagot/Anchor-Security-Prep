@@ -25,7 +25,10 @@ export default function HomePage() {
             Audits cost {ECOSYSTEM_STATS.auditCostRange} — this gives indie builders and hackathon teams audit-grade signal first.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <Link href="/compare" className="btn btn-primary">
+            <Link href="/reviewer" className="btn btn-primary">
+              Grant review (~2 min)
+            </Link>
+            <Link href="/compare" className="btn btn-ghost">
               Vulnerable vs clean
             </Link>
             <Link href="/scan?demo=vulnerable" className="btn btn-ghost">

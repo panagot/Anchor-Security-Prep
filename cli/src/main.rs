@@ -209,18 +209,42 @@ fn cmd_baseline_diff(path: &Path, baseline: &Path) -> Result<()> {
     let current = scan_project(path)?;
     let raw = fs::read_to_string(baseline).context("Read baseline")?;
     let base: Value = serde_json::from_str(&raw)?;
-    let base_ids: Vec<String> = base["findings"].as_array().unwrap_or(&vec![])
-        .iter().filter_map(|f| f["rule_id"].as_str().map(str::to_string)).collect();
-    let cur_ids: Vec<String> = current.findings.iter().map(|f| f.rule_id.clone()).collect();
-    let new_findings: Vec<_> = current.findings.iter()
-        .filter(|f| !base_ids.contains(&f.rule_id)).collect();
-    let fixed = base_ids.iter().filter(|id| !cur_ids.contains(id)).count();
+    let base_keys: Vec<String> = base["findings"]
+        .as_array()
+        .unwrap_or(&vec![])
+        .iter()
+        .filter_map(finding_fingerprint_from_value)
+        .collect();
+    let cur_keys: Vec<String> = current.findings.iter().map(finding_fingerprint).collect();
+    let new_findings: Vec<_> = current
+        .findings
+        .iter()
+        .filter(|f| !base_keys.contains(&finding_fingerprint(f)))
+        .collect();
+    let fixed = base_keys
+        .iter()
+        .filter(|k| !cur_keys.contains(k))
+        .count();
     println!("New findings: {}", new_findings.len());
     println!("Fixed since baseline: {fixed}");
-    for f in new_findings {
-        println!("  {} {}:{}", f.rule_id, f.file, f.line);
+    for f in &new_findings {
+        println!("  {} {}:{} — {}", f.rule_id, f.file, f.line, f.title);
+    }
+    if !new_findings.is_empty() {
+        exit(1);
     }
     Ok(())
+}
+
+fn finding_fingerprint(f: &crate::types::Finding) -> String {
+    format!("{}:{}:{}", f.rule_id, f.file, f.line)
+}
+
+fn finding_fingerprint_from_value(v: &Value) -> Option<String> {
+    let rule_id = v["rule_id"].as_str()?;
+    let file = v["file"].as_str()?;
+    let line = v["line"].as_u64()?;
+    Some(format!("{rule_id}:{file}:{line}"))
 }
 
 fn cmd_fix(id: &str, dry_run: bool) -> Result<()> {

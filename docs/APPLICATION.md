@@ -35,8 +35,9 @@ Rust CLI + Next.js dashboard. 26 rules covering signers, PDAs, CPI, tokens, DoS,
 - **Live demo:** https://anchor-security-prep.vercel.app/
 - **Repo:** https://github.com/panagot/Anchor-Security-Prep
 - **Demo impact:** 41 findings on vulnerable example (7 critical, 22 high); 0 high/critical on clean reference
-- **CI:** GitHub Actions passing (Rust tests + Next.js build)
-- **Docs:** Benchmark methodology, exploit mapping, contributing guide
+- **15/26 rule fixtures** with `cargo test -p anchor-prep`
+- **CI:** GitHub Actions passing (18 Rust tests + Next.js build)
+- **Grant review path:** https://anchor-security-prep.vercel.app/reviewer
 
 ## Differentiation
 
@@ -67,5 +68,6 @@ $10,000 USD — see [GRANT.md](./GRANT.md) for M1/M2/maintenance/adoption breakd
 |----------|-----|
 | Repository | https://github.com/panagot/Anchor-Security-Prep |
 | Live demo | https://anchor-security-prep.vercel.app/ |
+| Grant review (~2 min) | https://anchor-security-prep.vercel.app/reviewer |
 | Compare demo | https://anchor-security-prep.vercel.app/compare |
 | Grant doc | https://github.com/panagot/Anchor-Security-Prep/blob/main/docs/GRANT.md |

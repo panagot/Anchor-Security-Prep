@@ -106,7 +106,7 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 - Clean example: 0 high/critical
 - Published release binaries (linux/mac/win)
 
-**Status:** ~85% complete (v0.2 prototype)
+**Status:** ~90% complete — 15/26 rule fixtures, dashboard live, baseline diff fixed
 
 ### Milestone 2 — CI + dashboard v1.0 ($3,000)
 
@@ -122,9 +122,14 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 - End-to-end demo: PR → scan → SARIF → dashboard report
 - Hosted demo URL for grant reviewers
 
-**Status:** ~90% complete — dashboard live at https://anchor-security-prep.vercel.app/; release binaries pending
+**Status:** ~95% complete — live demo, `/reviewer` walkthrough, release workflow ready; tagged release pending
 
 ---
+
+## Grant reviewer path
+
+**2-minute evaluation:** https://anchor-security-prep.vercel.app/reviewer  
+**Docs:** [docs/REVIEWER.md](./REVIEWER.md) · [docs/BENCHMARK_RESULTS.md](./BENCHMARK_RESULTS.md) · [docs/INCIDENTS.md](./INCIDENTS.md)
 
 ## Community feedback milestone (grant period)
 

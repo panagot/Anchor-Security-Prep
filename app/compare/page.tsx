@@ -9,6 +9,7 @@ import { useCallback, useEffect, useState } from "react";
 
 
 import { CodeDiff } from "@/components/CodeDiff";
+import { DemoImpactBanner } from "@/components/DemoImpactBanner";
 import { PageHeader } from "@/components/PageHeader";
 
 import { SummaryCards } from "@/components/SummaryCards";
@@ -166,6 +167,8 @@ export default function ComparePage() {
   return (
 
     <div className="space-y-8">
+
+      <DemoImpactBanner />
 
       <PageHeader
 

@@ -15,6 +15,54 @@ fn fixture_asp001_missing_signer() {
 }
 
 #[test]
+fn fixture_asp002_unchecked_account_info() {
+    let report = scan_project(&fixture_dir("asp002")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP002"));
+}
+
+#[test]
+fn fixture_asp004_unsafe_close() {
+    let report = scan_project(&fixture_dir("asp004")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP004"));
+}
+
+#[test]
+fn fixture_asp023_zero_pubkey() {
+    let report = scan_project(&fixture_dir("asp023")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP023"));
+}
+
+#[test]
+fn fixture_asp008_untyped_sysvar() {
+    let report = scan_project(&fixture_dir("asp008")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP008"));
+}
+
+#[test]
+fn fixture_asp009_token_constraints() {
+    let report = scan_project(&fixture_dir("asp009")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP009"));
+}
+
+#[test]
+fn fixture_asp010_unchecked_owner() {
+    let report = scan_project(&fixture_dir("asp010")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP010"));
+}
+
+#[test]
+fn fixture_asp011_init_if_needed() {
+    let report = scan_project(&fixture_dir("asp011")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP011"));
+}
+
+#[test]
+fn fixture_asp019_invoke_signed() {
+    let report = scan_project(&fixture_dir("asp019")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP019"));
+}
+
+#[test]
 fn fixture_asp003_pda_bump() {
     let report = scan_project(&fixture_dir("asp003")).expect("scan");
     assert!(report.findings.iter().any(|f| f.rule_id == "ASP003"));

@@ -14,10 +14,20 @@ const RULE_DOCS: Record<string, { why: string; bad: string; good: string }> = {
     bad: "pub user: AccountInfo<'info>",
     good: "pub authority: Signer<'info>",
   },
+  ASP002: {
+    why: "Raw AccountInfo bypasses Anchor's type system — attackers can substitute accounts of wrong type or owner.",
+    bad: "pub vault: AccountInfo<'info>",
+    good: "pub vault: Account<'info, Vault>  // or documented /// CHECK + owner constraint",
+  },
   ASP003: {
     why: "Missing bump validation allows PDA seed collisions and account substitution attacks.",
     bad: "seeds = [b\"vault\"], // no bump",
     good: "seeds = [b\"vault\"], bump,",
+  },
+  ASP004: {
+    why: "Manual lamport manipulation without Anchor close constraints enables rent theft and close bugs.",
+    bad: "**dest.lamports += acct.lamports(); acct.assign(...)",
+    good: "#[account(mut, close = destination)] pub target: Account<'info, T>",
   },
   ASP006: {
     why: "Unvalidated CPI lets attackers redirect calls to malicious programs.",
@@ -29,20 +39,45 @@ const RULE_DOCS: Record<string, { why: string; bad: string; good: string }> = {
     bad: "pub token: Account<'info, TokenAccount>",
     good: "constraint = token.mint == expected_mint.key()",
   },
+  ASP010: {
+    why: "UncheckedAccount without owner validation accepts any program-owned account.",
+    bad: "pub external: UncheckedAccount<'info>  // no owner check",
+    good: "constraint = external.owner == expected_program.key()",
+  },
+  ASP011: {
+    why: "init_if_needed without Signer payer lets anyone initialize accounts on others' behalf.",
+    bad: "init_if_needed, payer = payer  // payer is AccountInfo",
+    good: "init_if_needed, payer = payer  // payer: Signer<'info>",
+  },
   ASP015: {
     why: "Admin instructions without privileged signers allow unauthorized protocol takeover.",
     bad: "pub fn set_admin(...) // no Signer admin",
     good: "pub admin: Signer<'info> + has_one = admin",
+  },
+  ASP019: {
+    why: "invoke_signed with unvalidated seeds allows forged PDA signatures on CPI.",
+    bad: "invoke_signed(..., &[&[]])  // empty seeds",
+    good: "Validate seeds match program-derived PDA before invoke_signed",
   },
   ASP021: {
     why: "Unchecked math on balances can wrap and create or destroy tokens.",
     bad: "vault.balance += amount;",
     good: "vault.balance = vault.balance.checked_add(amount).ok_or(...)?;",
   },
+  ASP023: {
+    why: "Pubkey::default() is often used incorrectly as a sentinel — can match unintended accounts.",
+    bad: "let admin = Pubkey::default();",
+    good: "Use explicit constant + validate admin != Pubkey::default()",
+  },
   ASP025: {
     why: "remaining_accounts can smuggle arbitrary accounts if not validated per-item.",
     bad: "for acc in ctx.remaining_accounts.iter() { ... }",
     good: "Validate owner, discriminator, and expected key for each account",
+  },
+  ASP026: {
+    why: "Custom accounts without #[account] lack Anchor discriminator — type confusion attacks.",
+    bad: "pub struct BalanceVault { pub amount: u64 }",
+    good: "#[account] pub struct BalanceVault { pub amount: u64 }",
   },
 };
 
