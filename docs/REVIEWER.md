@@ -1,6 +1,6 @@
 # Grant reviewer guide (~2 minutes)
 
-**Live demo:** https://anchor-security-prep.vercel.app/review  
+**Live demo:** https://anchor-security-prep.vercel.app/reviewer  
 **Repo:** https://github.com/panagot/Anchor-Security-Prep
 
 This page is the fastest path to evaluate Anchor Security Prep for the Solana Foundation Developer Tooling grant.

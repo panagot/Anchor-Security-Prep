@@ -51,7 +51,7 @@ It is designed for developers who need **audit-grade signal without audit-grade 
 | **GitHub Actions** | One-command CI scaffold via `anchor-prep init` |
 | **Web dashboard** | Interactive report explorer with filterable findings and code context |
 | **Rule documentation** | Per-rule pages with vulnerable vs hardened patterns |
-| **Regression fixtures** | Golden tests per rule (`fixtures/asp001`–`asp026`) |
+| **Regression fixtures** | 15/26 golden tests today (M1 target: all 26) |
 
 ---
 
@@ -185,7 +185,7 @@ A composite action is also available at [`.github/action/action.yml`](.github/ac
 
 Full catalog: run `anchor-prep rules --json` or visit `/rules` in the dashboard.
 
-Each rule includes a regression fixture under `fixtures/` and is documented at `/rules/[id]`.
+Each rule with a fixture is tested in CI; all rules are documented at `/rules/[id]`.
 
 ---
 

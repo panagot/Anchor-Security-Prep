@@ -51,8 +51,8 @@ $10,000 USD — see [GRANT.md](./GRANT.md) for M1/M2/maintenance/adoption breakd
 
 | Milestone | Amount | Status |
 |-----------|--------|--------|
-| M1 CLI v1.0 | $2,500 | ~85% |
-| M2 CI + dashboard | $3,000 | ~90% (dashboard live) |
+| M1 CLI v1.0 | $2,500 | ~75% (15/26 fixtures, release pending) |
+| M2 CI + dashboard | $3,000 | ~95% (live demo + /reviewer path) |
 | Maintenance 6mo | $2,500 | Planned |
 | Adoption | $2,000 | Planned |
 
