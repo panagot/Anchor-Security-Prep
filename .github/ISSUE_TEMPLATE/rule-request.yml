@@ -1,0 +1,33 @@
+name: Rule request
+description: Propose a new security rule
+title: "[Rule] "
+labels: ["enhancement", "rule"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New rules need an exploit class, fixture, and regression test. See [CONTRIBUTING.md](../docs/CONTRIBUTING.md).
+  - type: textarea
+    id: pattern
+    attributes:
+      label: Vulnerable pattern
+      description: What code pattern should be detected?
+    validations:
+      required: true
+  - type: textarea
+    id: exploit
+    attributes:
+      label: Exploit class / real-world reference
+      description: Link to audit report, Sealevel Attacks chapter, or incident post-mortem if available
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Suggested severity
+      options: ["critical", "high", "medium", "low"]
+  - type: textarea
+    id: fix
+    attributes:
+      label: Fix hint
+      description: How should developers harden this?

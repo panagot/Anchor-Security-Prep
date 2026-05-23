@@ -21,7 +21,8 @@
   <a href="#web-dashboard">Dashboard</a> ·
   <a href="#rules">Rules</a> ·
   <a href="#ci-integration">CI</a> ·
-  <a href="docs/GRANT.md">Grant</a>
+  <a href="docs/GRANT.md">Grant</a> ·
+  <a href="docs/APPLICATION.md">Apply</a>
 </p>
 
 ---
@@ -139,6 +140,8 @@ npm run dev
 
 **Live demo:** [anchor-security-prep.vercel.app](https://anchor-security-prep.vercel.app)
 
+**Demo impact:** 41 findings on vulnerable example (7 critical, 22 high) · 0 high/critical on clean reference — see [/compare](https://anchor-security-prep.vercel.app/compare)
+
 1. Import [panagot/Anchor-Security-Prep](https://github.com/panagot/Anchor-Security-Prep) at [vercel.com/new](https://vercel.com/new)
 2. Leave **Root Directory** empty (repo root — default)
 3. Leave Build Command and Output Directory **empty** (defaults)
@@ -248,6 +251,8 @@ cargo run -p anchor-prep -- rules --json > public/rules.json
 This project is developed as a public good for the Solana ecosystem, aligned with the [Solana Foundation Developer Tooling grant](https://solana.org/grants-funding) program.
 
 See [docs/GRANT.md](docs/GRANT.md) for milestones, budget breakdown, and adoption targets.
+
+**Grant application draft:** [docs/APPLICATION.md](docs/APPLICATION.md) · **Benchmark:** [docs/BENCHMARK.md](docs/BENCHMARK.md) · **Exploit mapping:** [docs/EXPLOITS.md](docs/EXPLOITS.md)
 
 ---
 

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { PageHeader } from "@/components/PageHeader";
 import type { RuleInfo } from "@/lib/types";
+import { RULE_INCIDENTS } from "@/lib/incidents";
 import { checkCliAvailable, runRulesJson } from "@/lib/scanner";
 import fs from "fs";
 import path from "path";
@@ -70,6 +71,7 @@ export default async function RuleDetailPage({ params }: { params: Promise<{ id:
   if (!rule) notFound();
 
   const doc = RULE_DOCS[ruleId];
+  const incidents = RULE_INCIDENTS[ruleId] ?? [];
 
   return (
     <div className="mx-auto max-w-3xl space-y-8">
@@ -86,6 +88,29 @@ export default async function RuleDetailPage({ params }: { params: Promise<{ id:
           <p className="text-xs text-[var(--ink-faint)]">Category: {rule.category}</p>
         </div>
       </div>
+
+      {incidents.length > 0 && (
+        <section className="panel">
+          <div className="panel-inner space-y-3">
+            <h2 className="display text-lg font-bold">Real-world relevance</h2>
+            <ul className="space-y-2 text-sm text-[var(--ink-muted)]">
+              {incidents.map((inc) => (
+                <li key={inc.name} className="border-l-2 border-[var(--amber)] pl-3">
+                  <strong className="text-[var(--ink)]">{inc.name}</strong> — {inc.impact}
+                  {inc.url && (
+                    <>
+                      {" "}
+                      <a href={inc.url} className="text-[var(--amber)] hover:underline" target="_blank" rel="noopener noreferrer">
+                        Reference
+                      </a>
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {doc && (
         <>

@@ -1,0 +1,59 @@
+name: Release
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            artifact: anchor-prep-linux-x64
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            artifact: anchor-prep-macos-x64
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            artifact: anchor-prep-macos-arm64
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            artifact: anchor-prep-windows-x64.exe
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - run: cargo build -p anchor-prep --release --target ${{ matrix.target }}
+      - name: Stage binary
+        shell: bash
+        run: |
+          mkdir dist
+          if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+            cp target/${{ matrix.target }}/release/anchor-prep.exe "dist/${{ matrix.artifact }}"
+          else
+            cp target/${{ matrix.target }}/release/anchor-prep "dist/${{ matrix.artifact }}"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: dist/*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
