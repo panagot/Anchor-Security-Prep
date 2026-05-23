@@ -17,8 +17,22 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Anchor Security Prep",
-  description: "Pre-audit static analysis for Anchor and Solana programs",
+  title: {
+    default: "Anchor Security Prep",
+    template: "%s · Anchor Security Prep",
+  },
+  description:
+    "Pre-audit static analysis for Anchor and Solana programs. 26 security rules, SARIF export, and GitHub Actions integration.",
+  metadataBase: new URL("https://github.com/panagot/Anchor-Security-Prep"),
+  openGraph: {
+    title: "Anchor Security Prep",
+    description: "Pre-audit static analysis for Anchor and Solana programs",
+    type: "website",
+  },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

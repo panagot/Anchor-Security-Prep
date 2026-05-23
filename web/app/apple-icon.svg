@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <rect width="180" height="180" rx="32" fill="#0a0a0c"/>
+  <rect x="16" y="16" width="148" height="148" rx="12" stroke="#e5a020" stroke-width="8"/>
+  <path d="M90 40 L130 65 V105 C130 125 90 150 90 150 C90 150 50 125 50 105 V65 Z" stroke="#e5a020" stroke-width="6" fill="rgba(229,160,32,0.15)"/>
+  <text x="90" y="108" font-family="ui-monospace, monospace" font-size="32" font-weight="700" fill="#e5a020" text-anchor="middle">ASP</text>
+</svg>
