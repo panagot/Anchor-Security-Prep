@@ -141,8 +141,12 @@ npm run dev
 **Live demo:** [anchor-security-prep.vercel.app](https://anchor-security-prep.vercel.app)
 
 1. Import [panagot/Anchor-Security-Prep](https://github.com/panagot/Anchor-Security-Prep) at [vercel.com/new](https://vercel.com/new)
-2. Set **Root Directory** to `web` *(recommended)* — or use the root `vercel.json` which builds from `web/` automatically
-3. Deploy — no environment variables required
+2. Set **Root Directory** to **`web`** ← required (fixes 404)
+3. Deploy — no environment variables needed
+
+> **Getting 404?** See [docs/VERCEL.md](docs/VERCEL.md) for step-by-step fix.
+
+The hosted demo serves bundled sample reports — no CLI required for `/compare` and `/rules`.
 
 ---
 
