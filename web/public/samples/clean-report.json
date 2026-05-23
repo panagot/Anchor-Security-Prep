@@ -1,0 +1,20 @@
+{
+  "id": "0134672b-ec5e-43aa-87b3-b7800bd49fc7",
+  "project_path": "examples/clean-program",
+  "scanned_at": "2026-05-23T16:39:47.617931800+00:00",
+  "files_scanned": 1,
+  "rules_run": 26,
+  "findings": [
+    {
+      "rule_id": "ASP013",
+      "title": "Missing Rent sysvar for init",
+      "severity": "low",
+      "file": "examples/clean-program/programs/clean/src/lib.rs",
+      "line": 39,
+      "message": "Init pattern detected — verify Rent sysvar or space calculation is handled.",
+      "fix_hint": "Use init with space derived from INIT_SPACE and ensure rent-exempt funding.",
+      "code_snippet": "    37 | pub struct InitializeVault<'info> {\n    38 |     #[account(\n>   39 |         init,\n    40 |         payer = payer,\n    41 |         space = 8 + Vault::INIT_SPACE,",
+      "category": "general"
+    }
+  ]
+}

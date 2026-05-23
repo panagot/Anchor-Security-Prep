@@ -1,0 +1,30 @@
+name: Anchor Security Prep
+
+on:
+  pull_request:
+    paths:
+      - "programs/**"
+      - "Anchor.toml"
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build anchor-prep
+        run: cargo build --release -p anchor-prep
+
+      - name: Run security scan
+        run: |
+          cargo run --release -p anchor-prep -- scan . --format all --fail-on high
+        continue-on-error: false
+
+      - name: Upload SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: reports/report.sarif

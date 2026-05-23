@@ -1,0 +1,12 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.local]
+clean = "CLEAN11111111111111111111111111111111111111"
+
+[provider]
+cluster = "localnet"
+
+[toolchain]
+anchor_version = "0.30.1"

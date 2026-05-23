@@ -1,0 +1,48 @@
+name: Anchor Security Prep Scan
+description: Run anchor-prep static analysis and upload SARIF to GitHub Code Scanning
+branding:
+  icon: shield
+  color: orange
+
+inputs:
+  path:
+    description: Path to Anchor project root
+    required: false
+    default: "."
+  fail-on:
+    description: Minimum severity that fails the check (critical, high, medium, low)
+    required: false
+    default: high
+  version:
+    description: anchor-prep release tag
+    required: false
+    default: v0.2.0
+
+runs:
+  using: composite
+  steps:
+    - name: Download anchor-prep
+      shell: bash
+      run: |
+        VERSION="${{ inputs.version }}"
+        URL="https://github.com/anchor-security-prep/anchor-prep/releases/download/${VERSION}/anchor-prep-linux-x86_64"
+        curl -fsSL "$URL" -o anchor-prep || echo "Release binary not yet published — building from source"
+        if [ ! -f anchor-prep ]; then
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          source "$HOME/.cargo/env"
+          cargo build --release -p anchor-prep
+          cp target/release/anchor-prep ./anchor-prep
+        fi
+        chmod +x anchor-prep
+        sudo mv anchor-prep /usr/local/bin/
+
+    - name: Run security scan
+      shell: bash
+      run: |
+        anchor-prep scan "${{ inputs.path }}" --format all --fail-on "${{ inputs.fail-on }}"
+
+    - name: Upload SARIF
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: reports/report.sarif
