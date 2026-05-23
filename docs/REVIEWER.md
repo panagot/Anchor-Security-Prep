@@ -24,7 +24,7 @@ Same 26-rule engine. Different Anchor patterns. This is the core value prop: **c
 
 1. From Compare, note top critical issues (ASP001 missing signer, ASP004 unsafe close, etc.)
 2. Open **[ASP001 rule doc](https://anchor-security-prep.vercel.app/rules/asp001)** — vulnerable vs hardened pattern
-3. Open **[sample report](https://anchor-security-prep.vercel.app/scan?demo=vulnerable)** — fix hints per finding
+3. Open **[sample report](https://anchor-security-prep.vercel.app/report/e8494079-b4d7-43b7-a924-461d976fe5da)** — fix hints per finding
 
 ---
 

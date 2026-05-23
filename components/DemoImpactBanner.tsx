@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { DEMO_IMPACT } from "@/lib/demo-impact";
+import { sampleReportUrl } from "@/lib/demo-routes";
 
 /** Client-safe banner — stats from bundled samples (see lib/demo-impact.ts) */
 export function DemoImpactBanner() {
@@ -22,7 +23,7 @@ export function DemoImpactBanner() {
           <Link href="/reviewer" className="btn btn-ghost text-[10px]">
             Grant review (~2 min)
           </Link>
-          <Link href="/scan?demo=vulnerable" className="btn btn-primary text-[10px]">
+          <Link href={sampleReportUrl("vulnerable")} className="btn btn-primary text-[10px]">
             Full report
           </Link>
         </div>

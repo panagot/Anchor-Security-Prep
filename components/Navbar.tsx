@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { sampleReportUrl } from "@/lib/demo-routes";
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/reviewer", label: "Review" },
@@ -44,8 +46,8 @@ export function Navbar() {
               </Link>
             );
           })}
-          <Link href="/scan?demo=vulnerable" className="btn btn-primary shrink-0 text-[10px]">
-            Run demo
+          <Link href={sampleReportUrl("vulnerable")} className="btn btn-primary shrink-0 text-[10px]">
+            Sample report
           </Link>
         </nav>
       </div>

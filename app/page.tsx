@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { CopyButton } from "@/components/CopyButton";
 import { ECOSYSTEM_STATS } from "@/lib/incidents";
+import { sampleReportUrl } from "@/lib/demo-routes";
 import { getDemoImpactStats } from "@/lib/sample-stats";
 
 const QUICKSTART = `cargo build -p anchor-prep
@@ -31,8 +32,8 @@ export default function HomePage() {
             <Link href="/compare" className="btn btn-ghost">
               Vulnerable vs clean
             </Link>
-            <Link href="/scan?demo=vulnerable" className="btn btn-ghost">
-              Run demo scan
+            <Link href={sampleReportUrl("vulnerable")} className="btn btn-ghost">
+              Sample report
             </Link>
             <Link href="/rules" className="btn btn-ghost">
               Rule catalog
@@ -53,8 +54,10 @@ export default function HomePage() {
               </div>
               <div className="border border-[var(--phosphor)]/40 bg-[var(--phosphor)]/5 p-3">
                 <p className="label mb-1 text-[var(--phosphor)]">Clean reference</p>
-                <p className="font-mono text-2xl font-bold text-[var(--ink)]">{impact.clean.highCritical}</p>
-                <p className="mt-1 text-[var(--ink-muted)]">high/critical · hardened patterns</p>
+                <p className="font-mono text-2xl font-bold text-[var(--ink)]">{impact.clean.total}</p>
+                <p className="mt-1 text-[var(--ink-muted)]">
+                  {impact.clean.highCritical} high/critical · hardened patterns
+                </p>
               </div>
             </div>
             <Link href="/compare" className="text-[10px] text-[var(--amber)] hover:underline">
@@ -97,7 +100,7 @@ export default function HomePage() {
           <ol className="grid gap-3 text-xs md:grid-cols-3">
             {[
               { step: "1", title: "Compare samples", href: "/compare", outcome: `${impact.vulnerable.total} vs ${impact.clean.highCritical} high/critical` },
-              { step: "2", title: "Open full report", href: "/scan?demo=vulnerable", outcome: "Finding detail + fix hints" },
+              { step: "2", title: "Open full report", href: sampleReportUrl("vulnerable"), outcome: "Finding detail + fix hints" },
               { step: "3", title: "Export & CI", href: "/integrations", outcome: "SARIF + GitHub Action" },
             ].map((s) => (
               <li key={s.step} className="border border-[var(--line)] bg-black/20 p-4">

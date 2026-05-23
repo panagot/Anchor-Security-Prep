@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 text-[10px] text-[var(--ink-faint)]">
         <p>Anchor Security Prep · MIT · Solana public good</p>
         <nav className="flex flex-wrap gap-4" aria-label="Footer">
-          <Link href="/scan" className="hover:text-[var(--amber)]">Demo scan</Link>
+          <Link href="/reviewer" className="hover:text-[var(--amber)]">Grant review</Link>
           <Link href="/compare" className="hover:text-[var(--amber)]">Compare samples</Link>
           <Link href="/integrations" className="hover:text-[var(--amber)]">CI setup</Link>
           <a

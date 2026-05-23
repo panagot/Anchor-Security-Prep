@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { CopyButton } from "@/components/CopyButton";
 
@@ -27,6 +28,11 @@ jobs:
         if: always()
         with:
           sarif_file: reports/report.sarif`;
+
+export const metadata: Metadata = {
+  title: "CI & CLI integration",
+  description: "GitHub Actions scaffold, SARIF export, baseline diff — embed Anchor Security Prep in every PR.",
+};
 
 export default function IntegrationsPage() {
   return (

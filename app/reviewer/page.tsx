@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
+import { DemoModeBanner } from "@/components/DemoModeBanner";
 import { PageHeader } from "@/components/PageHeader";
 import { getDemoImpactStats } from "@/lib/sample-stats";
 import { ECOSYSTEM_STATS } from "@/lib/incidents";
+import { sampleReportUrl } from "@/lib/demo-routes";
+
+export const metadata: Metadata = {
+  title: "Grant reviewer walkthrough",
+  description:
+    "2-minute path to evaluate Anchor Security Prep — compare samples, inspect rules, view findings, CI integration.",
+};
 
 const STEPS = [
   {
@@ -22,7 +32,7 @@ const STEPS = [
   {
     n: "3",
     title: "Open full report",
-    href: "/scan?demo=vulnerable",
+    href: sampleReportUrl("vulnerable"),
     time: "30 sec",
     body: "Finding explorer with severity, line numbers, code snippets, export paths.",
   },
@@ -45,6 +55,8 @@ export default function ReviewerPage() {
         title="Grant reviewer walkthrough"
         subtitle="~2 minutes to evaluate Anchor Security Prep for Solana Foundation Developer Tooling funding."
       />
+
+      <DemoModeBanner />
 
       <section className="panel border-[var(--amber)]/40">
         <div className="panel-inner space-y-4">

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
@@ -11,6 +12,11 @@ const severityClass: Record<string, string> = {
   high: "sev-high",
   medium: "sev-medium",
   low: "sev-low",
+};
+
+export const metadata: Metadata = {
+  title: "Rule catalog",
+  description: "26 Anchor-native security rules mapped to Sealevel attack classes — signer, PDA, CPI, token constraints.",
 };
 
 function loadStaticRules(): RuleInfo[] | null {

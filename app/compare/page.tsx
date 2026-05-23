@@ -17,6 +17,7 @@ import { SummaryCards } from "@/components/SummaryCards";
 import type { ScanReport } from "@/lib/types";
 
 import { EXAMPLE_PATHS } from "@/lib/constants";
+import { SAMPLE_REPORT_IDS } from "@/lib/demo-routes";
 
 import { isScanReport } from "@/lib/validate";
 
@@ -226,24 +227,27 @@ export default function ComparePage() {
 
 
 
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
 
-        <section className="space-y-4">
+        <section className="flex flex-col gap-4">
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex min-h-[2rem] flex-wrap items-center gap-2">
 
             <span className="badge sev-critical">Vulnerable</span>
 
             <span className="text-xs text-[var(--ink-faint)]">{EXAMPLE_PATHS.vulnerable}</span>
 
-            {vuln?.reportId && (
-
-              <Link href={`/report/${vuln.reportId}`} className="btn btn-ghost text-[10px]">
-
+            {vuln?.reportId || vuln?.source === "sample" ? (
+              <Link
+                href={`/report/${vuln.reportId ?? SAMPLE_REPORT_IDS.vulnerable}`}
+                className="btn btn-ghost text-[10px]"
+              >
                 Full report →
-
               </Link>
-
+            ) : (
+              <span className="invisible btn btn-ghost pointer-events-none text-[10px]" aria-hidden>
+                Full report →
+              </span>
             )}
 
           </div>
@@ -276,22 +280,25 @@ export default function ComparePage() {
 
 
 
-        <section className="space-y-4">
+        <section className="flex flex-col gap-4">
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex min-h-[2rem] flex-wrap items-center gap-2">
 
             <span className="badge badge-pass">Clean</span>
 
             <span className="text-xs text-[var(--ink-faint)]">{EXAMPLE_PATHS.clean}</span>
 
-            {clean?.reportId && (
-
-              <Link href={`/report/${clean.reportId}`} className="btn btn-ghost text-[10px]">
-
+            {clean?.reportId || clean?.source === "sample" ? (
+              <Link
+                href={`/report/${clean.reportId ?? SAMPLE_REPORT_IDS.clean}`}
+                className="btn btn-ghost text-[10px]"
+              >
                 Full report →
-
               </Link>
-
+            ) : (
+              <span className="invisible btn btn-ghost pointer-events-none text-[10px]" aria-hidden>
+                Full report →
+              </span>
             )}
 
           </div>
@@ -337,17 +344,16 @@ export default function ComparePage() {
             <ul className="space-y-2 text-xs">
 
               {topFindings.map((f) => (
-
-                <li key={`${f.rule_id}-${f.line}`} className="flex items-center gap-2">
-
-                  <span className={`badge ${f.severity === "critical" ? "sev-critical" : "sev-high"}`}>{f.severity}</span>
-
-                  <span className="font-mono text-[var(--amber)]">{f.rule_id}</span>
-
-                  <span className="text-[var(--ink-muted)]">{f.title}</span>
-
+                <li key={`${f.rule_id}-${f.line}`}>
+                  <Link
+                    href={`/rules/${f.rule_id.toLowerCase()}`}
+                    className="flex items-center gap-2 rounded px-1 py-0.5 transition-colors hover:bg-[var(--amber-dim)]/20"
+                  >
+                    <span className={`badge ${f.severity === "critical" ? "sev-critical" : "sev-high"}`}>{f.severity}</span>
+                    <span className="font-mono text-[var(--amber)]">{f.rule_id}</span>
+                    <span className="text-[var(--ink-muted)]">{f.title}</span>
+                  </Link>
                 </li>
-
               ))}
 
             </ul>

@@ -1,8 +1,11 @@
 "use client";
 
+import Link from "next/link";
+
 const PAIRS = [
   {
     title: "Withdraw — missing Signer (ASP001)",
+    ruleId: "asp001",
     bad: `pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
     let vault = &mut ctx.accounts.vault;
     vault.amount -= amount; // no authority check
@@ -28,6 +31,7 @@ pub struct Withdraw<'info> {
   },
   {
     title: "PDA init — missing bump (ASP003)",
+    ruleId: "asp003",
     bad: `#[account(
     init,
     payer = payer,
@@ -46,6 +50,7 @@ pub vault: Account<'info, Vault>,`,
   },
   {
     title: "Token transfer — unconstrained mint (ASP009)",
+    ruleId: "asp009",
     bad: `pub struct TransferTokens<'info> {
     pub from_token: Account<'info, TokenAccount>,
     pub to_token: Account<'info, TokenAccount>,
@@ -69,7 +74,12 @@ export function CodeDiff() {
         {PAIRS.map((p) => (
           <div key={p.title} className="panel">
             <div className="panel-inner space-y-3">
-              <h3 className="text-sm font-semibold text-[var(--amber)]">{p.title}</h3>
+              <h3 className="text-sm font-semibold text-[var(--amber)]">
+                {p.title}{" "}
+                <Link href={`/rules/${p.ruleId}`} className="text-[10px] font-normal text-[var(--ink-faint)] hover:text-[var(--amber)] hover:underline">
+                  Rule doc →
+                </Link>
+              </h3>
               <div className="grid gap-3 lg:grid-cols-2">
                 <div>
                   <p className="label mb-2 text-[var(--critical)]">Vulnerable</p>

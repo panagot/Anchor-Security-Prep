@@ -14,6 +14,8 @@ import { PageHeader } from "@/components/PageHeader";
 
 import type { ScanReport } from "@/lib/types";
 
+import { sampleReportUrl } from "@/lib/demo-routes";
+
 import { isScanReport, highSeverityCount } from "@/lib/validate";
 
 
@@ -55,6 +57,16 @@ function ScanPageInner() {
     }
 
   }, [searchParams]);
+
+
+
+  useEffect(() => {
+
+    if (searchParams.get("demo") !== "vulnerable" || cliOk !== false) return;
+
+    router.replace(sampleReportUrl("vulnerable"));
+
+  }, [searchParams, cliOk, router]);
 
 
 
@@ -148,19 +160,29 @@ function ScanPageInner() {
 
         <div className="panel">
 
-          <div className="panel-inner space-y-2">
+          <div className="panel-inner space-y-3">
 
-            <p className="label text-[var(--critical)]">CLI not ready</p>
+            <p className="label text-[var(--critical)]">CLI not ready on this host</p>
 
-            <p className="text-xs text-[var(--ink-muted)]">Build the scanner before running live analysis:</p>
+            <p className="text-xs text-[var(--ink-muted)]">Build the scanner locally for live analysis:</p>
 
             <pre className="code-block p-3 text-xs">cargo build -p anchor-prep</pre>
 
-            <p className="text-xs text-[var(--ink-muted)]">
+            <div className="flex flex-wrap gap-2 pt-1">
 
-              Or view the <Link href="/compare" className="text-[var(--amber)]">bundled sample comparison</Link> without the CLI.
+              <Link href={sampleReportUrl("vulnerable")} className="btn btn-primary text-[10px]">
 
-            </p>
+                Open bundled vulnerable report
+
+              </Link>
+
+              <Link href="/compare" className="btn btn-ghost text-[10px]">
+
+                Compare samples
+
+              </Link>
+
+            </div>
 
           </div>
 
