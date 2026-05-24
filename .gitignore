@@ -7,8 +7,9 @@
 .anchor-prep/tmp-*/
 .anchor-prep/reports/
 
-# Local grant form draft (not for public repo)
+# Local grant drafts (not for public repo)
 docs/APPLICATION.md
+docs/GOOGLE_DOC_PROPOSAL.md
 /reports/
 .benchmark/
 # Node / Next.js (dashboard at repo root)

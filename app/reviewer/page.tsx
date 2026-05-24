@@ -210,15 +210,21 @@ export default function ReviewerPage() {
         </div>
       </section>
 
-      {/* Form hint — text only */}
+      {/* Reviewer resources */}
       <section className="panel border-[var(--line)]">
         <div className="panel-inner space-y-3 text-sm">
-          <h2 className="display text-base font-bold">For the funding form</h2>
+          <h2 className="display text-base font-bold">Documentation</h2>
           <p className="text-[var(--ink-muted)]">
-            Copy sections 1–12 from <code className="text-[var(--amber)]">docs/GRANT.md</code> into a shared Google Doc
-            per SF Developer Tooling guidelines. Paste that link in <strong className="text-[var(--ink)]">Your project /
-            idea</strong>. Website URL: anchor-security-prep.vercel.app · Open source: Yes · On-chain: N/A · Amount:
-            $10,000.
+            Full proposal and benchmark methodology live in the{" "}
+            <a
+              href="https://github.com/panagot/Anchor-Security-Prep/tree/main/docs"
+              className="text-[var(--amber)] hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              docs/
+            </a>{" "}
+            folder on GitHub.
           </p>
         </div>
       </section>

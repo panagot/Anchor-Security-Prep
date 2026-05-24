@@ -305,8 +305,6 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 4. **Reviewer-first delivery** — Built `/reviewer`, `/compare`, `/m1`, `/m2` so SF evaluators verify value in 2 minutes without a Rust toolchain — uncommon for solo tooling grants.
 5. **Ecosystem participation** — Active in Solana developer communities; tool positioned for hackathon/Colosseum pre-submission workflows.
 
-*[Optional — add if applicable: links to Anchor programs you have built or shipped publicly.]*
-
 **Why not wait for commercial tools?** Sec3 X-Ray and similar products serve funded protocols. Indie devs need a free, CI-native alternative that embeds security into daily workflow — not a sales call.
 
 ---
