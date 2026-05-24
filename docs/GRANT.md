@@ -5,7 +5,7 @@
 **Total request:** $10,000 USD  
 **Application form:** https://share.hsforms.com/1GE1hYdApQGaDiCgaiWMXHA5lohw  
 **Reviewer walkthrough (2 min):** https://anchor-security-prep.vercel.app/reviewer  
-**Milestone detail:** [M1](https://anchor-security-prep.vercel.app/m1) · [M2](https://anchor-security-prep.vercel.app/m2)
+**Milestone detail:** [M1 Begin](https://anchor-security-prep.vercel.app/m1) · [M2 Finish](https://anchor-security-prep.vercel.app/m2)
 
 > **For Google Doc submission:** Copy sections 1–12 below into a shared Google Doc per [SF Developer Tooling guidelines](https://tinyurl.com/y2abys36). Paste the Google Doc link in the form field **“Your project / idea”**. Use written answers in the form fields — do not paste raw URLs except where the form asks for them.
 
@@ -24,7 +24,7 @@ Anchor Security Prep is a **free, MIT-licensed pre-audit static analyzer** for A
 | **Rules** | 26 active (ASP001–ASP026) |
 | **Proof** | 41 findings / 29 high+critical on vulnerable sample; 0 high/critical on clean reference |
 
-**Why fund now:** Audits remain inaccessible for indie devs and hackathon teams. STRIDE subsidizes audits for larger protocols — but bugs must be caught earlier. We have a working prototype with SARIF, GitHub Actions scaffolding, and a grant-reviewer demo path. Funding closes the last 10–15% of M1/M2 and funds maintenance + adoption so the tool becomes default pre-audit hygiene in the ecosystem.
+**Why fund now:** Audits remain inaccessible for indie devs and hackathon teams. We have a working prototype with CLI, **public website**, SARIF, and CI scaffolding. Funding delivers production v1.0 and **12 months of dedicated upkeep** — two milestones at $5,000 each.
 
 **Public-good positioning:** Complement STRIDE and professional audits — reduce audit scope, catch issues in CI, lower overall ecosystem exploit risk.
 
@@ -177,139 +177,115 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 
 ## 7. Budget breakdown ($10,000 USD)
 
-| Category | Amount | % | Purpose |
-|----------|--------|---|---------|
-| **M1 — CLI core v1.0** | $2,500 | 25% | 26 rules, fixtures, SARIF, release binaries |
-| **M2 — CI + dashboard v1.0** | $3,000 | 30% | GitHub Action, dashboard, reviewer path |
-| **Maintenance (6 months)** | $2,500 | 25% | Issue triage, FP fixes, Anchor compat |
-| **Adoption** | $2,000 | 20% | Docs, tutorials, community outreach |
-| **Total** | **$10,000** | 100% | |
+| Milestone | Amount | When paid |
+|-----------|--------|-----------|
+| **M1 — Begin** | $5,000 | CLI beta, public website, CI foundation accepted |
+| **M2 — Finish** | $5,000 | Production v1.0 + 12 months dedicated upkeep begins |
+| **Total** | **$10,000** | |
 
-Payment structure: M1 and M2 on acceptance criteria met. Maintenance: monthly ($417/mo × 6). Adoption: 25% of adoption budget per 25% of each adoption metric achieved (see §10).
+**Payment structure:** Two milestones only. M1 pays on begin deliverables (working CLI, live website, CI scaffold). M2 pays on production v1.0 completion and start of the 12-month upkeep SLA.
+
+**Included in the grant:** Public website (Next.js dashboard on Vercel), CLI, CI integration, and **12 months of dedicated upkeep** (issue triage, false-positive tuning, Anchor compatibility, documentation, adoption outreach).
+
+> **Detailed review pages:** [M1 Begin](https://anchor-security-prep.vercel.app/m1) · [M2 Finish](https://anchor-security-prep.vercel.app/m2)
 
 ---
 
-## 8. Development milestones
+## 8. Milestone 1 — Begin ($5,000)
 
-> **Detailed review pages:** [M1](https://anchor-security-prep.vercel.app/m1) · [M2](https://anchor-security-prep.vercel.app/m2)
-
-### Milestone 1 — CLI core v1.0 ($2,500)
-
-**Goal:** Production-grade open-source CLI that catches exploit-class Anchor patterns before audit.
+**Goal:** Launch the grant with a working CLI, public website, and CI foundation — so developers and reviewers can use Anchor Security Prep immediately.
 
 **Deliverables:**
 
 | # | Deliverable | Status |
 |---|-------------|--------|
-| 1 | 26 production rules (ASP001–ASP026) | ✓ Done |
-| 2 | Per-rule fixture regression tests | ◐ 21/26 |
-| 3 | Commands: scan, rules, doctor, baseline, audit-prep, init, fix | ✓ Done |
-| 4 | JSON, Markdown, SARIF 2.1 export | ✓ Done |
-| 5 | `.anchor-prep.toml` configuration | ✓ Done |
-| 6 | Vulnerable + clean example programs | ✓ Done |
-| 7 | Release binaries (linux / mac / win) | ✓ v0.2.0 |
-| 8 | External benchmark Phase 1 | ✓ sealevel-attacks |
+| 1 | Rust CLI with 26 Anchor security rules | ✓ Done |
+| 2 | JSON, Markdown, SARIF 2.1 export | ✓ Done |
+| 3 | Core commands: scan, rules, doctor, baseline, init | ✓ Done |
+| 4 | **Public website / dashboard** on Vercel | ✓ Live |
+| 5 | Compare, rules, report, integrations, /reviewer pages | ✓ Done |
+| 6 | GitHub Actions workflow + composite action | ✓ Done |
+| 7 | Vulnerable + clean example programs | ✓ Done |
+| 8 | v0.2.0 release binaries (linux / mac / win) | ✓ Done |
+| 9 | Phase 1 external benchmark | ✓ sealevel-attacks |
 
-**Acceptance criteria (all must pass for M1 payout):**
+**Acceptance criteria (M1 payout):**
 
-1. `cargo test -p anchor-prep` passes — fixtures + integration (24+ tests)
-2. Vulnerable example: ≥40 findings, ≥29 high/critical
-3. Clean example: 0 high/critical
-4. Published release binaries on GitHub Releases
-5. 26/26 rule fixtures with golden regression tests
+1. Website live at anchor-security-prep.vercel.app — no install required to evaluate
+2. Compare demo: ≥40 findings on vulnerable; 0 high/critical on clean reference
+3. `cargo test -p anchor-prep` passes (24+ tests)
+4. `anchor-prep init` scaffolds working CI workflow
+5. SARIF export works on bundled sample report
 
-**Remaining M1 work (~10%):** Complete fixtures ASP022–ASP026; expand benchmark to 3+ OSS repos.
-
-**Status:** ~90% complete
+**Status:** ~85% complete (v0.2.0 prototype covers most begin deliverables)
 
 ---
 
-### Milestone 2 — CI + dashboard v1.0 ($3,000)
+## 9. Milestone 2 — Finish ($5,000)
 
-**Goal:** Embed security into every PR; grant reviewers evaluate value in under 2 minutes without install.
+**Goal:** Ship production v1.0 across CLI, website, and CI. Begin **12 months of dedicated upkeep** — the maintenance and adoption work that keeps the tool accurate and adopted as Anchor evolves.
 
 **Deliverables:**
 
 | # | Deliverable | Status |
 |---|-------------|--------|
-| 1 | Composite GitHub Action + workflow template | ✓ Done |
-| 2 | SARIF upload with rule catalog + helpUri | ✓ Done |
-| 3 | Web dashboard (compare, scan, report, rules) | ✓ Live on Vercel |
-| 4 | Integrations page with CI snippets | ✓ Done |
-| 5 | Grant reviewer walkthrough (`/reviewer`) | ✓ Done |
-| 6 | M1/M2 milestone detail pages | ✓ Done |
-| 7 | Server-rendered compare (no empty demo state) | ✓ Done |
-| 8 | Audit checklist export from reports | ◐ Planned |
-| 9 | End-to-end demo video | ◐ Planned |
+| 1 | CLI v1.0 — 26/26 rule fixtures with golden tests | ◐ 21/26 |
+| 2 | Accuracy benchmark on 3+ open-source Anchor repos | ◐ Phase 1 done |
+| 3 | Audit checklist export from reports | ◐ Planned |
+| 4 | Website v1.0 polish (reviewer, milestones, docs) | ◐ Core live |
+| 5 | v1.0 release binaries on GitHub | ◐ v0.2.0 today |
+| 6 | Expand to 40–50 rules grounded in audit reports | ◐ Planned |
+| 7 | **12 months upkeep** — issue triage & bug fixes | Starts on M2 acceptance |
+| 8 | **12 months upkeep** — false-positive tuning & Anchor compat | Monthly cycle; 2-week compat SLA |
+| 9 | **12 months upkeep** — docs, releases, adoption outreach | Hackathons, Discord, CI integrations |
 
-**Acceptance criteria (all must pass for M2 payout):**
+**Acceptance criteria (M2 payout):**
 
-1. `anchor-prep init` scaffolds working GitHub Actions workflow
-2. Hosted demo URL for grant reviewers (https://anchor-security-prep.vercel.app/reviewer)
-3. Compare → report → integrations path completable in under 2 minutes
-4. SARIF export works on bundled sample report
+1. 26/26 rule fixtures; `cargo test -p anchor-prep` passes
+2. Vulnerable ≥40 findings / ≥29 high+critical; clean 0 high/critical
+3. Website v1.0 with /reviewer, /m1, /m2, /integrations live
+4. Published v1.0 release binaries
+5. 12-month upkeep plan documented; adoption metrics tracked
 
-**Remaining M2 work (~5%):** Audit checklist export; optional demo video.
-
-**Status:** ~95% complete
-
----
-
-## 9. Maintenance milestones ($2,500 — 6 × $417/mo)
-
-| Month | Scope | Deliverable |
-|-------|-------|-------------|
-| 1–2 | Issue triage, false-positive reports, Anchor 0.30+ compat | FP triage log in GitHub Issues |
-| 3–4 | New rules from community requests, rule tuning | 5+ new rules or major rule improvements |
-| 5–6 | Anchor version matrix, documentation refresh | Updated compat matrix + CHANGELOG |
-
-**SLA:**
+**12-month upkeep SLA:**
 
 - Critical bugs: 48-hour response
 - Anchor minor version compatibility: within 2 weeks of release
 - False positive triage: monthly review cycle
+- Documentation and release notes updated with each rule change
 
----
+**Adoption targets (tracked during 12-month upkeep):**
 
-## 10. Adoption milestones ($2,000)
-
-| Metric | Target (6 mo) | Tracking |
-|--------|---------------|----------|
+| Metric | Target (12 mo) | Tracking |
+|--------|----------------|----------|
 | GitHub stars | 100 | GitHub API |
 | Public CI integrations | 20 | GitHub search `anchor-prep` in workflows |
-| Programs scanned (unique repos) | 50 | CLI telemetry + Action logs |
-| Findings resolved (community reports) | 25 | Issue labels `fixed-by-user` |
+| Programs scanned (unique repos) | 50 | Action logs + community reports |
+| Findings resolved by users | 25 | Issue label `fixed-by-user` |
 
-**Payment:** 25% of adoption budget ($500) per 25% of each metric achieved.
-
-**Adoption levers:**
-
-- Colosseum / hackathon default pre-submission check
-- Solana Stack tutorials and Discord outreach
-- Threads documenting bugs caught pre-audit
-- Optional audit-firm “pre-audit ready” badge partnership
+**Status:** Paid on v1.0 completion + upkeep period start
 
 ---
 
-## 11. Timeline
+## 10. Timeline
 
-| Phase | Weeks | Focus |
-|-------|-------|-------|
-| **Pre-grant (done)** | — | v0.2.0, live demo, 21/26 fixtures, Phase 1 benchmark |
-| **Grant Month 1** | 1–4 | Close M1 (26/26 fixtures), community beta thread |
-| **Grant Month 2** | 5–8 | Close M2 (audit checklist export), expand benchmark |
-| **Grant Month 3–4** | 9–16 | 5+ new rules, FP tuning from community |
-| **Grant Month 5–6** | 17–24 | Anchor compat matrix, adoption push, docs refresh |
+| Phase | Focus |
+|-------|-------|
+| **Pre-grant (done)** | v0.2.0, live website, 21/26 fixtures, Phase 1 benchmark |
+| **M1 — Begin** | Accept begin deliverables; payout $5,000 |
+| **Months 1–3** | Close v1.0: 26/26 fixtures, benchmark expansion, website polish |
+| **M2 — Finish** | v1.0 release; payout $5,000; **12-month upkeep begins** |
+| **Months 4–12** | Upkeep: FP tuning, Anchor compat, new rules, adoption push |
 
-**Community feedback milestone (grant period):**
+**Community feedback (during upkeep):**
 
-- Public beta thread (Solana Discord / Reddit) with vulnerable vs clean examples
-- Collect 5+ external feedback items; document in GitHub Issues
-- Incorporate top false-positive reports into rule tuning (Month 1–2)
+- Public beta thread (Solana Discord / Reddit)
+- Collect external FP reports; triage monthly
+- Incorporate top feedback into rule tuning
 
 ---
 
-## 12. Team — Why us?
+## 11. Team — Why us?
 
 **Solo indie developer** with Solana ecosystem experience building developer tools as public goods.
 
@@ -324,7 +300,7 @@ Payment structure: M1 and M2 on acceptance criteria met. Maintenance: monthly ($
 
 ---
 
-## 13. Risks & mitigations
+## 12. Risks & mitigations
 
 | Risk | Likelihood | Mitigation |
 |------|------------|------------|
@@ -336,7 +312,7 @@ Payment structure: M1 and M2 on acceptance criteria met. Maintenance: monthly ($
 
 ---
 
-## 14. Open source commitment
+## 13. Open source commitment
 
 - **License:** MIT — all code, rules, and documentation
 - **Repository:** https://github.com/panagot/Anchor-Security-Prep (public)
@@ -345,7 +321,7 @@ Payment structure: M1 and M2 on acceptance criteria met. Maintenance: monthly ($
 
 ---
 
-## 15. Appendix — related documents
+## 14. Appendix — related documents
 
 | Document | Purpose |
 |----------|---------|
@@ -355,14 +331,14 @@ Payment structure: M1 and M2 on acceptance criteria met. Maintenance: monthly ($
 | [EXPLOITS.md](./EXPLOITS.md) | Rule → real-world exploit examples |
 | [CONTRIBUTING.md](./CONTRIBUTING.md) | Contributor / co-maintainer onboarding |
 
-**Grant review (web):** https://anchor-security-prep.vercel.app/reviewer · [M1](https://anchor-security-prep.vercel.app/m1) · [M2](https://anchor-security-prep.vercel.app/m2)
+**Grant review (web):** https://anchor-security-prep.vercel.app/reviewer · [M1 Begin](https://anchor-security-prep.vercel.app/m1) · [M2 Finish](https://anchor-security-prep.vercel.app/m2)
 
 ---
 
-## 16. Grant reviewer quick path
+## 15. Grant reviewer quick path
 
 1. **2 min overview:** https://anchor-security-prep.vercel.app/reviewer  
 2. **Side-by-side proof:** https://anchor-security-prep.vercel.app/compare  
-3. **If approving — milestone detail:** [M1](https://anchor-security-prep.vercel.app/m1) · [M2](https://anchor-security-prep.vercel.app/m2)  
+3. **If approving — milestone detail:** [M1 Begin](https://anchor-security-prep.vercel.app/m1) · [M2 Finish](https://anchor-security-prep.vercel.app/m2)  
 4. **Full proposal:** this document  
 5. **Repo:** https://github.com/panagot/Anchor-Security-Prep

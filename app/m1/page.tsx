@@ -4,9 +4,9 @@ import { MilestoneView } from "@/components/MilestoneView";
 import { M1, M2 } from "@/lib/milestones";
 
 export const metadata: Metadata = {
-  title: "Milestone 1 — CLI core v1.0",
+  title: "Milestone 1 — Begin",
   description:
-    "Grant M1 deliverables: 26 Anchor rules, fixtures, SARIF export, release binaries, and external benchmark — $2,500.",
+    "Grant M1: CLI beta, public website, CI foundation — $5,000 on acceptance.",
 };
 
 export default function M1Page() {

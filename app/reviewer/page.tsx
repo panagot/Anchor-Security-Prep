@@ -170,8 +170,10 @@ export default function ReviewerPage() {
         <div className="border-l-2 border-[var(--amber)] pl-4">
           <h2 className="display text-xl font-bold">If approving — review milestones</h2>
           <p className="mt-1 text-sm text-[var(--ink-muted)]">
-            $5,500 of the $10K request is tied to M1 and M2. Each page lists deliverables, acceptance criteria, progress,
-            and live proof. Remaining budget: $2,500 maintenance + $2,000 adoption (see grant doc).
+            Two milestones only: <strong className="text-[var(--ink)]">$5,000 to begin</strong> (CLI + public website +
+            CI foundation) and <strong className="text-[var(--ink)]">$5,000 to finish</strong> (production v1.0 +{" "}
+            <strong className="text-[var(--ink)]">12 months dedicated upkeep</strong>). Each page lists deliverables,
+            acceptance criteria, and live proof.
           </p>
         </div>
         <div className="grid gap-6 lg:grid-cols-2">
@@ -201,7 +203,7 @@ export default function ReviewerPage() {
           <h2 className="display text-base font-bold text-[var(--ink)]">Honest limitations</h2>
           <p>
             Not a replacement for professional audit. Static heuristics with documented false-positive tradeoffs.
-            {FIXTURE_LABEL} rules have golden tests today (26/26 by M1 close). Some secure reference programs in external
+            {FIXTURE_LABEL} rules have golden tests today (26/26 by M2 finish). Some secure reference programs in external
             benchmarks may trigger heuristic findings — baseline diff is the mitigation.
           </p>
         </div>
