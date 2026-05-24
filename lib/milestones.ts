@@ -37,7 +37,7 @@ export const M1: Milestone = {
     { label: "Core commands: scan, rules, doctor, baseline, init", done: true },
     { label: "Public website / dashboard on Vercel", done: true, detail: "anchor-security-prep.vercel.app" },
     { label: "Compare, rules catalog, report explorer, integrations pages", done: true },
-    { label: "Grant reviewer walkthrough (/reviewer)", done: true, detail: "~2 min evaluation path" },
+    { label: "Overview walkthrough (/reviewer)", done: true, detail: "~2 min evaluation path" },
     { label: "GitHub Actions workflow template + composite action", done: true },
     { label: "Vulnerable + clean example programs", done: true, detail: "41 vs 0 high/critical demo" },
     { label: "v0.2.0 release binaries (linux / mac / win)", done: true },
@@ -53,7 +53,7 @@ export const M1: Milestone = {
   outcomes: [
     "Solana devs discover and try the tool via the public website — no Rust install required to evaluate",
     "Teams scaffold CI with one command and get SARIF-ready scans on day one",
-    "Grant reviewers verify value in under 2 minutes at /reviewer",
+    "Reviewers can verify value in under 2 minutes at /reviewer",
     "Open-source repo and release binaries establish trust before v1.0 finish",
   ],
   demoLinks: [

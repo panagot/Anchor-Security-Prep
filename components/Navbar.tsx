@@ -7,7 +7,7 @@ import { sampleReportUrl } from "@/lib/demo-routes";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/reviewer", label: "Review" },
+  { href: "/reviewer", label: "Overview" },
   { href: "/compare", label: "Compare" },
   { href: "/rules", label: "Rules" },
   { href: "/integrations", label: "CI" },

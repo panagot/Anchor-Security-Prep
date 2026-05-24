@@ -2,7 +2,7 @@
 
 
 
-Published accuracy measurements for Anchor Security Prep. Updated: grant submit v0.2.
+Published accuracy measurements for Anchor Security Prep. Updated: v0.2.
 
 
 
@@ -44,7 +44,7 @@ Scanned with 26 rules (`cargo run -p anchor-prep -- scan …`):
 
 **High/critical:** 29  
 
-**Purpose:** Intentional anti-patterns for demo, CI, and grant review.
+**Purpose:** Intentional anti-patterns for demo, CI, and documentation.
 
 
 

@@ -10,9 +10,9 @@ import { sampleReportUrl } from "@/lib/demo-routes";
 import { getDemoImpactStats } from "@/lib/sample-stats";
 
 export const metadata: Metadata = {
-  title: "Solana Foundation review",
+  title: "Project overview",
   description:
-    "Developer Tooling grant review for Anchor Security Prep — value proposition, $10K ask, M1/M2 milestones, 2-minute demo.",
+    "Anchor Security Prep — value proposition, live demo path, milestones, and technical proof in ~2 minutes.",
 };
 
 const DEMO_STEPS = [
@@ -69,9 +69,9 @@ export default function ReviewerPage() {
   return (
     <div className="mx-auto max-w-4xl space-y-10">
       <PageHeader
-        refId="SF-REVIEW"
-        title="Solana Foundation — Developer Tooling review"
-        subtitle="Everything you need to evaluate Anchor Security Prep in ~2 minutes. If the proposal looks fundable, open M1 and M2 for deliverables, acceptance criteria, and budget detail."
+        refId="OVERVIEW"
+        title="Project overview"
+        subtitle="Evaluate Anchor Security Prep in ~2 minutes — live demo, milestones, and proof of delivery. Open M1 and M2 for deliverables and acceptance criteria."
       />
 
       <DemoModeBanner />

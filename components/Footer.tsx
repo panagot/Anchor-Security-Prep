@@ -12,7 +12,7 @@ export function Footer() {
             <p className="mt-1 text-xs text-[var(--ink-faint)]">MIT · Solana public good · Pre-audit static analysis</p>
           </div>
           <Link href="/reviewer" className="btn btn-primary text-[10px]">
-            Grant review (~2 min)
+            Overview (~2 min)
           </Link>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-[var(--ink-faint)]" aria-label="Footer">
@@ -27,7 +27,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Grant proposal
+            Funding proposal
           </a>
           <a
             href="https://github.com/panagot/Anchor-Security-Prep"

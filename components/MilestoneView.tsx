@@ -117,7 +117,7 @@ export function MilestoneView({ milestone, other }: { milestone: Milestone; othe
         <div className="panel-inner space-y-4">
           <h2 className="display text-lg font-bold">See it today</h2>
           <p className="text-sm text-[var(--ink-muted)]">
-            Grant reviewers can verify shipped work now — no wait for funding to see the prototype.
+            Reviewers can verify shipped work now — no install required.
           </p>
           <div className="flex flex-wrap gap-2">
             {milestone.demoLinks.map((link) =>
@@ -156,7 +156,7 @@ export function MilestoneView({ milestone, other }: { milestone: Milestone; othe
           target="_blank"
           rel="noopener noreferrer"
         >
-          Full grant proposal ↗
+          Full proposal ↗
         </a>
       </div>
     </div>

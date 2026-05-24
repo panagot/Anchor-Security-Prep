@@ -37,7 +37,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <Link href="/reviewer" className="btn btn-primary">
-              Grant review (~2 min)
+              Overview (~2 min)
             </Link>
             <Link href="/compare" className="btn btn-ghost">
               Vulnerable vs clean
@@ -186,13 +186,13 @@ export default function HomePage() {
       <section className="panel border-[var(--amber)]/30">
         <div className="panel-inner flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="label text-[var(--amber)]">Solana Foundation Developer Tooling</p>
+            <p className="label text-[var(--amber)]">Public good tooling</p>
             <p className="mt-1 text-sm text-[var(--ink-muted)]">
-              Evaluating this project? Start the 2-minute reviewer walkthrough.
+              New here? Start the 2-minute walkthrough.
             </p>
           </div>
           <Link href="/reviewer" className="btn btn-primary">
-            Open grant review →
+            Project overview →
           </Link>
         </div>
       </section>

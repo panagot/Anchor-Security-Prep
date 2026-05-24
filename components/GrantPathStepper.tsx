@@ -18,9 +18,9 @@ export function GrantPathStepper() {
     STEPS.find((s) => s.match.some((m) => pathname === m || (m !== "/compare" && pathname.startsWith(m))))?.n ?? 0;
 
   return (
-    <nav aria-label="Grant review progress" className="panel border-[var(--amber)]/25">
+    <nav aria-label="Demo walkthrough" className="panel border-[var(--amber)]/25">
       <div className="panel-inner flex flex-wrap items-center gap-2 py-3">
-        <span className="label mr-1 shrink-0 text-[var(--amber)]">Grant path</span>
+        <span className="label mr-1 shrink-0 text-[var(--amber)]">Quick tour</span>
         {STEPS.map((s) => {
           const isActive = s.n === active;
           const isDone = active > s.n;

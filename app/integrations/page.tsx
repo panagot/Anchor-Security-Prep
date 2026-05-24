@@ -129,7 +129,7 @@ export default function IntegrationsPage() {
       <NextStepCta
         step="Step 4 complete"
         next={{
-          label: "Read grant proposal",
+          label: "Read funding proposal",
           href: "https://github.com/panagot/Anchor-Security-Prep/blob/main/docs/GRANT.md",
           description: "Budget, milestones, adoption targets, and Phase 1 external benchmark plan.",
         }}

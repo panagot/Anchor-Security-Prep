@@ -22,7 +22,7 @@
   <a href="#rules">Rules</a> ·
   <a href="#ci-integration">CI</a> ·
   <a href="docs/GRANT.md">Grant</a> ·
-  <a href="https://anchor-security-prep.vercel.app/reviewer">Review</a>
+  <a href="https://anchor-security-prep.vercel.app/reviewer">Overview</a>
 </p>
 
 ---
@@ -128,7 +128,7 @@ npm run dev
 
 | Route | Purpose |
 |-------|---------|
-| `/` | Overview and grant demo walkthrough |
+| `/` | Overview and demo walkthrough |
 | `/compare` | Side-by-side vulnerable vs clean analysis |
 | `/scan` | Run live scans against local paths |
 | `/rules` | Searchable rule catalog |
@@ -246,13 +246,11 @@ cargo run -p anchor-prep -- rules --json > public/rules.json
 
 ---
 
-## Grant
+## Funding
 
-This project is developed as a public good for the Solana ecosystem, aligned with the [Solana Foundation Developer Tooling grant](https://solana.org/grants-funding) program.
+MIT-licensed public good for the Solana ecosystem. [Funding proposal](docs/GRANT.md) · [Benchmark results](docs/BENCHMARK_RESULTS.md) · [Incidents](docs/INCIDENTS.md)
 
-**Reviewer path (~2 min):** [anchor-security-prep.vercel.app/reviewer](https://anchor-security-prep.vercel.app/reviewer) · **M1 / M2:** [/m1](https://anchor-security-prep.vercel.app/m1) · [/m2](https://anchor-security-prep.vercel.app/m2)
-
-See [docs/GRANT.md](docs/GRANT.md) for the full proposal · [docs/BENCHMARK_RESULTS.md](docs/BENCHMARK_RESULTS.md) · [docs/INCIDENTS.md](docs/INCIDENTS.md)
+**Quick tour (~2 min):** [anchor-security-prep.vercel.app/reviewer](https://anchor-security-prep.vercel.app/reviewer) · **M1 / M2:** [/m1](https://anchor-security-prep.vercel.app/m1) · [/m2](https://anchor-security-prep.vercel.app/m2)
 
 ---
 
@@ -264,6 +262,6 @@ MIT © Anchor Security Prep Contributors. See [LICENSE](LICENSE).
 
 <p align="center">
   <a href="https://github.com/panagot/Anchor-Security-Prep">GitHub</a> ·
-  <a href="docs/GRANT.md">Grant proposal</a> ·
-  <a href="https://anchor-security-prep.vercel.app/reviewer">Grant review</a>
+  <a href="docs/GRANT.md">Funding proposal</a> ·
+  <a href="https://anchor-security-prep.vercel.app/reviewer">Overview</a>
 </p>

@@ -21,7 +21,7 @@ export function DemoImpactBanner() {
         </div>
         <div className="flex flex-wrap gap-2">
           <Link href="/reviewer" className="btn btn-ghost text-[10px]">
-            Grant review (~2 min)
+            Overview (~2 min)
           </Link>
           <Link href={sampleReportUrl("vulnerable")} className="btn btn-primary text-[10px]">
             Full report
