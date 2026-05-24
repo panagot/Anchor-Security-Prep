@@ -2,13 +2,29 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-[var(--line)] py-8">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 text-[10px] text-[var(--ink-faint)]">
-        <p>Anchor Security Prep · MIT · Solana public good</p>
-        <nav className="flex flex-wrap gap-4" aria-label="Footer">
-          <Link href="/reviewer" className="hover:text-[var(--amber)]">Grant review</Link>
-          <Link href="/compare" className="hover:text-[var(--amber)]">Compare samples</Link>
+    <footer className="mt-16 border-t border-[var(--line)] py-10">
+      <div className="mx-auto max-w-6xl space-y-6 px-6">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="display text-sm font-bold text-[var(--ink)]">Anchor Security Prep</p>
+            <p className="mt-1 text-xs text-[var(--ink-faint)]">MIT · Solana public good · Pre-audit static analysis</p>
+          </div>
+          <Link href="/reviewer" className="btn btn-primary text-[10px]">
+            Grant review (~2 min)
+          </Link>
+        </div>
+        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-[var(--ink-faint)]" aria-label="Footer">
+          <Link href="/compare" className="hover:text-[var(--amber)]">Compare</Link>
+          <Link href="/rules" className="hover:text-[var(--amber)]">Rules</Link>
           <Link href="/integrations" className="hover:text-[var(--amber)]">CI setup</Link>
+          <a
+            href="https://github.com/panagot/Anchor-Security-Prep/blob/main/docs/GRANT.md"
+            className="hover:text-[var(--amber)]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Grant proposal
+          </a>
           <a
             href="https://github.com/panagot/Anchor-Security-Prep"
             className="hover:text-[var(--amber)]"
@@ -18,7 +34,12 @@ export function Footer() {
             GitHub
           </a>
         </nav>
-        <p>v0.2 · 26 rules · <a href="https://anchor-security-prep.vercel.app" className="hover:text-[var(--amber)]">Live demo</a></p>
+        <p className="text-[10px] text-[var(--ink-faint)]">
+          v0.2 · 26 rules · 15/26 fixtures ·{" "}
+          <a href="https://anchor-security-prep.vercel.app" className="hover:text-[var(--amber)]">
+            Live demo
+          </a>
+        </p>
       </div>
     </footer>
   );

@@ -4,10 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
 import { FindingCard, FindingDetail } from "@/components/FindingCard";
+import { GrantPathStepper } from "@/components/GrantPathStepper";
+import { NextStepCta } from "@/components/NextStepCta";
 import { PageHeader } from "@/components/PageHeader";
 import { SummaryCards } from "@/components/SummaryCards";
 import type { Finding, ScanReport } from "@/lib/types";
-import { isBundledReportId } from "@/lib/demo-routes";
+import { isBundledReportId, sampleReportUrl } from "@/lib/demo-routes";
 import { isScanReport } from "@/lib/validate";
 
 type LoadState = "loading" | "ready" | "error";
@@ -132,7 +134,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
           <p className="label text-[var(--critical)]">Report unavailable</p>
           <h1 className="display text-2xl font-bold">Could not load scan report</h1>
           <p className="text-sm text-[var(--ink-muted)]">{error || "Unknown error"}</p>
-          <Link href="/scan" className="btn btn-primary inline-flex">Run new scan</Link>
+          <Link href={sampleReportUrl("vulnerable")} className="btn btn-primary inline-flex">Open sample report</Link>
         </div>
       </div>
     );
@@ -140,7 +142,9 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
 
   return (
     <div className="space-y-8">
-      <nav className="flex flex-wrap items-center gap-3 text-[10px] text-[var(--ink-faint)]" aria-label="Breadcrumb">
+      <GrantPathStepper />
+
+      <nav className="flex flex-wrap items-center gap-3 text-[11px] text-[var(--ink-faint)]" aria-label="Breadcrumb">
         <Link href="/compare" className="hover:text-[var(--amber)]">Compare</Link>
         <span>›</span>
         <Link href="/scan" className="hover:text-[var(--amber)]">Scan</Link>
@@ -217,6 +221,15 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
           )}
         </div>
       </div>
+
+      <NextStepCta
+        step="Step 3 of 4"
+        next={{
+          label: "CI & SARIF setup",
+          href: "/integrations",
+          description: "GitHub Actions scaffold, baseline diff, and SARIF upload for pull request gates.",
+        }}
+      />
     </div>
   );
 }

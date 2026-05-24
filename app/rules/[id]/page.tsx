@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { GrantPathStepper } from "@/components/GrantPathStepper";
+import { NextStepCta } from "@/components/NextStepCta";
 import { PageHeader } from "@/components/PageHeader";
 import type { RuleInfo } from "@/lib/types";
 import { RULE_INCIDENTS } from "@/lib/incidents";
-import { checkCliAvailable, runRulesJson } from "@/lib/scanner";
-import fs from "fs";
+import { sampleReportUrl } from "@/lib/demo-routes";
+import { checkCliAvailable, runRulesJson } from "@/lib/scanner";import fs from "fs";
 import path from "path";
 
 const RULE_DOCS: Record<string, { why: string; bad: string; good: string }> = {
@@ -98,6 +101,17 @@ export function generateStaticParams() {
   return rules.map((r) => ({ id: r.id.toLowerCase() }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const ruleId = id.toUpperCase();
+  const rule = loadRules().find((r) => r.id === ruleId);
+  if (!rule) return { title: "Rule not found" };
+  return {
+    title: `${rule.id} — ${rule.title}`,
+    description: `${rule.description} · ${rule.exploit_class}`,
+  };
+}
+
 export default async function RuleDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const ruleId = id.toUpperCase();
@@ -110,6 +124,8 @@ export default async function RuleDetailPage({ params }: { params: Promise<{ id:
 
   return (
     <div className="mx-auto max-w-3xl space-y-8">
+      <GrantPathStepper />
+
       <PageHeader
         refId={rule.id}
         title={rule.title}
@@ -172,10 +188,36 @@ export default async function RuleDetailPage({ params }: { params: Promise<{ id:
         </>
       )}
 
-      <div className="flex gap-3">
+      {!doc && (
+        <section className="panel border-[var(--line)]">
+          <div className="panel-inner text-sm text-[var(--ink-muted)]">
+            Full vulnerable/hardened pattern docs ship in M1. See{" "}
+            <Link href="/rules/asp001" className="text-[var(--amber)] hover:underline">
+              ASP001
+            </Link>{" "}
+            for a complete example with bad vs good code.
+          </div>
+        </section>
+      )}
+
+      <div className="flex flex-wrap gap-3">
         <Link href="/rules" className="btn btn-ghost text-[10px]">← Rule catalog</Link>
-        <Link href="/compare" className="btn btn-primary text-[10px]">See live comparison</Link>
+        <Link href="/compare" className="btn btn-ghost text-[10px]">Compare samples</Link>
+        <Link href={sampleReportUrl("vulnerable")} className="btn btn-primary text-[10px]">
+          Findings in sample report
+        </Link>
       </div>
+
+      {doc && (
+        <NextStepCta
+          step="Step 2 of 4"
+          next={{
+            label: "Open full report",
+            href: sampleReportUrl("vulnerable"),
+            description: `See every ${rule.id} finding with line numbers, code context, and fix hints.`,
+          }}
+        />
+      )}
     </div>
   );
 }

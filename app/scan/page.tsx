@@ -1,31 +1,17 @@
 "use client";
 
-
-
 import { useRouter, useSearchParams } from "next/navigation";
-
 import { Suspense, useEffect, useState } from "react";
-
 import Link from "next/link";
 
-
-
 import { PageHeader } from "@/components/PageHeader";
-
 import type { ScanReport } from "@/lib/types";
-
 import { sampleReportUrl } from "@/lib/demo-routes";
-
 import { isScanReport, highSeverityCount } from "@/lib/validate";
 
-
-
 const presets = [
-
-  { label: "Vulnerable sample", path: "examples/vulnerable-program", tag: "40+ findings" },
-
-  { label: "Clean sample", path: "examples/clean-program", tag: "0 high/critical" },
-
+  { label: "Vulnerable sample", path: "examples/vulnerable-program", tag: "41 findings", report: "vulnerable" as const },
+  { label: "Clean sample", path: "examples/clean-program", tag: "0 high/critical", report: "clean" as const },
 ];
 
 
@@ -72,9 +58,11 @@ function ScanPageInner() {
 
   useEffect(() => {
 
-    fetch("/api/rules")
+    fetch("/api/cli-status")
 
-      .then((r) => setCliOk(r.ok))
+      .then((r) => r.json())
+
+      .then((data) => setCliOk(Boolean(data.available)))
 
       .catch(() => setCliOk(false));
 
@@ -150,7 +138,7 @@ function ScanPageInner() {
 
         title="Program scan"
 
-        subtitle="Point the analyzer at an Anchor workspace. Results include severity, rule ID, source context, and fix guidance."
+        subtitle="Run live analysis locally. On the hosted demo, open bundled sample reports instead."
 
       />
 
@@ -158,27 +146,53 @@ function ScanPageInner() {
 
       {cliOk === false && (
 
-        <div className="panel">
+        <div className="panel border-[var(--amber)]/30">
 
-          <div className="panel-inner space-y-3">
+          <div className="panel-inner space-y-4">
 
-            <p className="label text-[var(--critical)]">CLI not ready on this host</p>
+            <p className="label text-[var(--amber)]">Hosted demo mode</p>
 
-            <p className="text-xs text-[var(--ink-muted)]">Build the scanner locally for live analysis:</p>
+            <p className="text-sm text-[var(--ink-muted)]">
 
-            <pre className="code-block p-3 text-xs">cargo build -p anchor-prep</pre>
+              Live scans require the Rust CLI on your machine. Browse pre-scanned sample reports instantly:
+
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+
+              {presets.map((p) => (
+
+                <Link
+
+                  key={p.path}
+
+                  href={sampleReportUrl(p.report)}
+
+                  className="block border border-[var(--line)] bg-black/20 p-4 transition-colors hover:border-[var(--amber)]/40"
+
+                >
+
+                  <p className="font-semibold text-[var(--ink)]">{p.label}</p>
+
+                  <p className="mt-1 text-xs text-[var(--ink-muted)]">{p.tag}</p>
+
+                </Link>
+
+              ))}
+
+            </div>
 
             <div className="flex flex-wrap gap-2 pt-1">
 
-              <Link href={sampleReportUrl("vulnerable")} className="btn btn-primary text-[10px]">
+              <Link href="/compare" className="btn btn-ghost text-[10px]">
 
-                Open bundled vulnerable report
+                Compare side-by-side
 
               </Link>
 
-              <Link href="/compare" className="btn btn-ghost text-[10px]">
+              <Link href="/reviewer" className="btn btn-ghost text-[10px]">
 
-                Compare samples
+                Grant walkthrough
 
               </Link>
 

@@ -1,9 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CopyButton } from "@/components/CopyButton";
+import { TrustStrip } from "@/components/TrustStrip";
 import { ECOSYSTEM_STATS } from "@/lib/incidents";
 import { sampleReportUrl } from "@/lib/demo-routes";
 import { getDemoImpactStats } from "@/lib/sample-stats";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Pre-audit static analysis for Anchor and Solana programs — 26 rules, SARIF export, GitHub Actions, MIT licensed.",
+};
 
 const QUICKSTART = `cargo build -p anchor-prep
 cargo run -p anchor-prep -- scan examples/vulnerable-program --format all
@@ -23,7 +31,8 @@ export default function HomePage() {
           </h1>
           <p className="max-w-xl text-sm leading-relaxed text-[var(--ink-muted)]">
             Catch missing signers, unsafe CPI, PDA issues, and token constraint bugs before audit or mainnet.
-            Audits cost {ECOSYSTEM_STATS.auditCostRange} — this gives indie builders and hackathon teams audit-grade signal first.
+            Audits cost {ECOSYSTEM_STATS.auditCostRange} — this gives indie builders and hackathon teams audit-grade
+            signal first.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <Link href="/reviewer" className="btn btn-primary">
@@ -60,35 +69,44 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <Link href="/compare" className="text-[10px] text-[var(--amber)] hover:underline">
+            <Link href="/compare" className="text-[11px] text-[var(--amber)] hover:underline">
               See side-by-side comparison →
             </Link>
           </div>
         </div>
       </section>
 
+      <TrustStrip />
+
       <section className="panel">
         <div className="panel-inner">
           <p className="label mb-3">Why now</p>
-          <div className="grid gap-4 text-xs md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3">
             {[
               {
                 title: "Audit gap",
                 body: "STRIDE helps funded protocols — most builders ship without any pre-audit check.",
+                href: "/reviewer",
               },
               {
                 title: "CI-native",
                 body: "SARIF + GitHub Actions scaffold embeds security into every PR, not a one-off scan.",
+                href: "/integrations",
               },
               {
                 title: "Open & tunable",
-                body: "Baseline diff suppresses known noise. MIT license, 26 fixtures, growing rule set.",
+                body: "Baseline diff suppresses known noise. MIT license, 15/26 fixtures tested (M1: 26), growing rule set.",
+                href: "/rules",
               },
             ].map((item) => (
-              <div key={item.title} className="border border-[var(--line)] bg-black/20 p-4">
+              <Link
+                key={item.title}
+                href={item.href}
+                className="block border border-[var(--line)] bg-black/20 p-4 transition-colors hover:border-[var(--amber)]/40"
+              >
                 <h3 className="display text-sm font-bold text-[var(--amber)]">{item.title}</h3>
-                <p className="mt-2 leading-relaxed text-[var(--ink-muted)]">{item.body}</p>
-              </div>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--ink-muted)]">{item.body}</p>
+              </Link>
             ))}
           </div>
         </div>
@@ -97,18 +115,39 @@ export default function HomePage() {
       <section className="panel">
         <div className="panel-inner space-y-4">
           <h2 className="display text-xl font-bold">Grant demo path (~2 min)</h2>
-          <ol className="grid gap-3 text-xs md:grid-cols-3">
+          <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { step: "1", title: "Compare samples", href: "/compare", outcome: `${impact.vulnerable.total} vs ${impact.clean.highCritical} high/critical` },
-              { step: "2", title: "Open full report", href: sampleReportUrl("vulnerable"), outcome: "Finding detail + fix hints" },
-              { step: "3", title: "Export & CI", href: "/integrations", outcome: "SARIF + GitHub Action" },
+              {
+                step: "1",
+                title: "Compare samples",
+                href: "/compare",
+                outcome: `${impact.vulnerable.total} findings (${impact.vulnerable.highCritical} high/crit) vs ${impact.clean.highCritical} high/crit`,
+              },
+              {
+                step: "2",
+                title: "Inspect ASP001",
+                href: "/rules/asp001",
+                outcome: "Missing signer — bad vs good pattern",
+              },
+              {
+                step: "3",
+                title: "Open full report",
+                href: sampleReportUrl("vulnerable"),
+                outcome: "Finding detail + fix hints",
+              },
+              {
+                step: "4",
+                title: "Export & CI",
+                href: "/integrations",
+                outcome: "SARIF + GitHub Action",
+              },
             ].map((s) => (
               <li key={s.step} className="border border-[var(--line)] bg-black/20 p-4">
                 <p className="label mb-2">Step {s.step}</p>
                 <Link href={s.href} className="display text-base font-semibold text-[var(--amber)] hover:underline">
                   {s.title}
                 </Link>
-                <p className="mt-2 text-[var(--ink-muted)]">{s.outcome}</p>
+                <p className="mt-2 text-sm text-[var(--ink-muted)]">{s.outcome}</p>
               </li>
             ))}
           </ol>
@@ -117,18 +156,44 @@ export default function HomePage() {
 
       <section className="grid gap-4 md:grid-cols-3">
         {[
-          { n: "01", title: "CLI + CI pipeline", body: "Run locally or gate pull requests. Export SARIF for GitHub Code Scanning." },
-          { n: "02", title: "Solana-native rules", body: `${ECOSYSTEM_STATS.rulesActive} rules today → ${ECOSYSTEM_STATS.rulesTarget} target. Mapped to Sealevel attack classes.` },
-          { n: "03", title: "Pre-audit workflow", body: "Baseline diffs, audit checklists, and fix guidance per finding." },
+          {
+            n: "01",
+            title: "CLI + CI pipeline",
+            body: "Run locally or gate pull requests. Export SARIF for GitHub Code Scanning.",
+          },
+          {
+            n: "02",
+            title: "Solana-native rules",
+            body: `${ECOSYSTEM_STATS.rulesActive} rules today → ${ECOSYSTEM_STATS.rulesTarget} target. Mapped to Sealevel attack classes.`,
+          },
+          {
+            n: "03",
+            title: "Pre-audit workflow",
+            body: "Baseline diffs, audit checklists, and fix guidance per finding.",
+          },
         ].map((f) => (
           <div key={f.n} className="panel">
             <div className="panel-inner">
               <p className="rule-index">{f.n}</p>
               <h3 className="display -mt-4 text-lg font-bold">{f.title}</h3>
-              <p className="mt-3 text-xs leading-relaxed text-[var(--ink-muted)]">{f.body}</p>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ink-muted)]">{f.body}</p>
             </div>
           </div>
         ))}
+      </section>
+
+      <section className="panel border-[var(--amber)]/30">
+        <div className="panel-inner flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="label text-[var(--amber)]">Solana Foundation Developer Tooling</p>
+            <p className="mt-1 text-sm text-[var(--ink-muted)]">
+              Evaluating this project? Start the 2-minute reviewer walkthrough.
+            </p>
+          </div>
+          <Link href="/reviewer" className="btn btn-primary">
+            Open grant review →
+          </Link>
+        </div>
       </section>
 
       <section className="panel">

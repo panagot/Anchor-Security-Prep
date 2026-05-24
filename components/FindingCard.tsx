@@ -26,7 +26,8 @@ export function FindingCard({
       type="button"
       onClick={onClick}
       aria-pressed={active ?? false}
-      className={`panel w-full text-left transition-all hover:border-[var(--line-strong)] ${
+      aria-label={`${finding.rule_id} ${finding.severity}: ${finding.title} at ${file}:${finding.line}`}
+      className={`panel w-full text-left transition-all hover:border-[var(--line-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--amber)] ${
         active ? "ring-1 ring-[var(--amber)] border-[var(--amber)]" : ""
       }`}
     >

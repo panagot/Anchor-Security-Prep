@@ -11,7 +11,7 @@ export function PageHeader({ refId, title, subtitle, actions }: PageHeaderProps)
       <div>
         {refId && <p className="label mb-2">Audit ref · {refId}</p>}
         <h1 className="display text-3xl font-bold md:text-4xl">{title}</h1>
-        {subtitle && <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--ink-muted)]">{subtitle}</p>}
+        {subtitle && <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--ink-muted)] md:text-base">{subtitle}</p>}
       </div>
       {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
     </div>
