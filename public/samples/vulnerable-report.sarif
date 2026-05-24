@@ -1,0 +1,1367 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 12
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing signer validation — Instruction `initialize_vault` appears to mutate state but its accounts struct has no Signer or `signer = true` constraint."
+          },
+          "properties": {
+            "fixHint": "Add `Signer<'info>` to the accounts struct or constrain the authority with `signer = true`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp001",
+            "title": "Missing signer validation"
+          },
+          "ruleId": "ASP001"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing signer validation — Instruction `withdraw` appears to mutate state but its accounts struct has no Signer or `signer = true` constraint."
+          },
+          "properties": {
+            "fixHint": "Add `Signer<'info>` to the accounts struct or constrain the authority with `signer = true`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp001",
+            "title": "Missing signer validation"
+          },
+          "ruleId": "ASP001"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 35
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing signer validation — Instruction `close_vault` appears to mutate state but its accounts struct has no Signer or `signer = true` constraint."
+          },
+          "properties": {
+            "fixHint": "Add `Signer<'info>` to the accounts struct or constrain the authority with `signer = true`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp001",
+            "title": "Missing signer validation"
+          },
+          "ruleId": "ASP001"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 48
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing signer validation — Instruction `set_admin` appears to mutate state but its accounts struct has no Signer or `signer = true` constraint."
+          },
+          "properties": {
+            "fixHint": "Add `Signer<'info>` to the accounts struct or constrain the authority with `signer = true`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp001",
+            "title": "Missing signer validation"
+          },
+          "ruleId": "ASP001"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 74
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing signer validation — Instruction `batch_update` appears to mutate state but its accounts struct has no Signer or `signer = true` constraint."
+          },
+          "properties": {
+            "fixHint": "Add `Signer<'info>` to the accounts struct or constrain the authority with `signer = true`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp001",
+            "title": "Missing signer validation"
+          },
+          "ruleId": "ASP001"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 82
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing signer validation — Instruction `deposit` appears to mutate state but its accounts struct has no Signer or `signer = true` constraint."
+          },
+          "properties": {
+            "fixHint": "Add `Signer<'info>` to the accounts struct or constrain the authority with `signer = true`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp001",
+            "title": "Missing signer validation"
+          },
+          "ruleId": "ASP001"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 88
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing signer validation — Instruction `reset_config` appears to mutate state but its accounts struct has no Signer or `signer = true` constraint."
+          },
+          "properties": {
+            "fixHint": "Add `Signer<'info>` to the accounts struct or constrain the authority with `signer = true`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp001",
+            "title": "Missing signer validation"
+          },
+          "ruleId": "ASP001"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 38
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unsafe account close pattern — Manual lamport/account mutation detected without Anchor `close =` constraint nearby."
+          },
+          "properties": {
+            "fixHint": "Use `#[account(close = destination)]` so rent and lamports are handled safely.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp004",
+            "title": "Unsafe account close pattern"
+          },
+          "ruleId": "ASP004"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unsafe account close pattern — Manual lamport/account mutation detected without Anchor `close =` constraint nearby."
+          },
+          "properties": {
+            "fixHint": "Use `#[account(close = destination)]` so rent and lamports are handled safely.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp004",
+            "title": "Unsafe account close pattern"
+          },
+          "ruleId": "ASP004"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 59
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unvalidated CPI target — Cross-program invocation detected without nearby typed Program or explicit program ID validation."
+          },
+          "properties": {
+            "fixHint": "Pass `Program<'info, TargetProgram>` in accounts or verify `program.key() == target_program::ID`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp006",
+            "title": "Unvalidated CPI target"
+          },
+          "ruleId": "ASP006"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 59
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "invoke_signed without seed validation — invoke_signed detected — ensure seeds are program-derived and validated."
+          },
+          "properties": {
+            "fixHint": "Use validated PDA seeds and store canonical bump in account state.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp019",
+            "title": "invoke_signed without seed validation"
+          },
+          "ruleId": "ASP019"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 68
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Program unchecked in remaining accounts — remaining_accounts iteration without per-account validation is risky."
+          },
+          "properties": {
+            "fixHint": "Validate owner, discriminator, and signer for each remaining account.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp025",
+            "title": "Program unchecked in remaining accounts"
+          },
+          "ruleId": "ASP025"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 77
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked arithmetic — Arithmetic on balance/amount without checked_* operations."
+          },
+          "properties": {
+            "fixHint": "Use checked_add/checked_sub/checked_mul and handle None on overflow.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp021",
+            "title": "Unchecked arithmetic"
+          },
+          "ruleId": "ASP021"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 84
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked arithmetic — Arithmetic on balance/amount without checked_* operations."
+          },
+          "properties": {
+            "fixHint": "Use checked_add/checked_sub/checked_mul and handle None on overflow.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp021",
+            "title": "Unchecked arithmetic"
+          },
+          "ruleId": "ASP021"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 89
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Pubkey default / zero key — Default pubkey used — verify intent."
+          },
+          "properties": {
+            "fixHint": "Avoid Pubkey::default(); use explicit constants and validate against expected keys.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp023",
+            "title": "Pubkey default / zero key"
+          },
+          "ruleId": "ASP023"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 100
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "PDA seeds missing bump validation — PDA `seeds = [...]` constraint found without canonical bump validation."
+          },
+          "properties": {
+            "fixHint": "Add `bump` to the accounts constraint or include `&[bump]` in seeds and store canonical bump.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp003",
+            "title": "PDA seeds missing bump validation"
+          },
+          "ruleId": "ASP003"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 104
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 112
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 117
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Token account constraint mismatch — TokenAccount present without mint/authority binding constraints."
+          },
+          "properties": {
+            "fixHint": "Constrain token account mint and authority, e.g. `constraint = token.mint == mint.key()`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp009",
+            "title": "Token account constraint mismatch"
+          },
+          "ruleId": "ASP009"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 118
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Token account constraint mismatch — TokenAccount present without mint/authority binding constraints."
+          },
+          "properties": {
+            "fixHint": "Constrain token account mint and authority, e.g. `constraint = token.mint == mint.key()`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp009",
+            "title": "Token account constraint mismatch"
+          },
+          "ruleId": "ASP009"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 119
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 128
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 133
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 140
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 145
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 189
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "init_if_needed without payer signer — init_if_needed detected — ensure payer is Signer and constrained."
+          },
+          "properties": {
+            "fixHint": "Bind payer: Signer<'info> with mut and validate payer matches authority.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp011",
+            "title": "init_if_needed without payer signer"
+          },
+          "ruleId": "ASP011"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 192
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 210
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Token account constraint mismatch — TokenAccount present without mint/authority binding constraints."
+          },
+          "properties": {
+            "fixHint": "Constrain token account mint and authority, e.g. `constraint = token.mint == mint.key()`.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp009",
+            "title": "Token account constraint mismatch"
+          },
+          "ruleId": "ASP009"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 211
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unchecked AccountInfo usage — Raw AccountInfo used without typed wrapper or documented /// CHECK justification."
+          },
+          "properties": {
+            "fixHint": "Prefer Account<T>, InterfaceAccount<T>, or add /// CHECK with explicit in-handler validation.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+            "title": "Unchecked AccountInfo usage"
+          },
+          "ruleId": "ASP002"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Token-2022 extension unchecked — Token-2022 usage detected — verify extension constraints manually."
+          },
+          "properties": {
+            "fixHint": "Audit transfer hooks, permanent delegate, and default account state extensions.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp022",
+            "title": "Token-2022 extension unchecked"
+          },
+          "ruleId": "ASP022"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 68
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Loop in instruction handler — Loop detected inside program module — verify compute budget bounds."
+          },
+          "properties": {
+            "fixHint": "Bound iterations, use fixed-size arrays, or move heavy logic off-chain.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp017",
+            "title": "Loop in instruction handler"
+          },
+          "ruleId": "ASP017"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 76
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Loop in instruction handler — Loop detected inside program module — verify compute budget bounds."
+          },
+          "properties": {
+            "fixHint": "Bound iterations, use fixed-size arrays, or move heavy logic off-chain.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp017",
+            "title": "Loop in instruction handler"
+          },
+          "ruleId": "ASP017"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 119
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing authority constraint — Authority-like account present without `has_one` or typed authority binding."
+          },
+          "properties": {
+            "fixHint": "Use `has_one = authority` or typed Signer/Account relations to bind authorities.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp005",
+            "title": "Missing authority constraint"
+          },
+          "ruleId": "ASP005"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 133
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Untyped sysvar account — Sysvar passed as raw AccountInfo instead of typed Sysvar<T>."
+          },
+          "properties": {
+            "fixHint": "Use `Sysvar<'info, Rent>` or the relevant typed sysvar wrapper.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp008",
+            "title": "Untyped sysvar account"
+          },
+          "ruleId": "ASP008"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 198
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unbounded Vec in accounts — Unbounded Vec in accounts may cause compute DoS — prefer max_len."
+          },
+          "properties": {
+            "fixHint": "Use #[max_len(N)] on Vec account fields.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp016",
+            "title": "Unbounded Vec in accounts"
+          },
+          "ruleId": "ASP016"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 202
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Token-2022 extension unchecked — Token-2022 usage detected — verify extension constraints manually."
+          },
+          "properties": {
+            "fixHint": "Audit transfer hooks, permanent delegate, and default account state extensions.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp022",
+            "title": "Token-2022 extension unchecked"
+          },
+          "ruleId": "ASP022"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 204
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Token-2022 extension unchecked — Token-2022 usage detected — verify extension constraints manually."
+          },
+          "properties": {
+            "fixHint": "Audit transfer hooks, permanent delegate, and default account state extensions.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp022",
+            "title": "Token-2022 extension unchecked"
+          },
+          "ruleId": "ASP022"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 205
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Token-2022 extension unchecked — Token-2022 usage detected — verify extension constraints manually."
+          },
+          "properties": {
+            "fixHint": "Audit transfer hooks, permanent delegate, and default account state extensions.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp022",
+            "title": "Token-2022 extension unchecked"
+          },
+          "ruleId": "ASP022"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 97
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing Rent sysvar for init — Init pattern detected — verify Rent sysvar or space calculation is handled."
+          },
+          "properties": {
+            "fixHint": "Use init with space derived from INIT_SPACE and ensure rent-exempt funding.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp013",
+            "title": "Missing Rent sysvar for init"
+          },
+          "ruleId": "ASP013"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 171
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing discriminator on custom account — Custom account `BalanceVault` used with Account<T> but missing #[account] attribute."
+          },
+          "properties": {
+            "fixHint": "Add #[account] above the struct so Anchor assigns an 8-byte discriminator.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp026",
+            "title": "Missing discriminator on custom account"
+          },
+          "ruleId": "ASP026"
+        },
+        {
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/vulnerable-program/programs/vulnerable/src/lib.rs"
+                },
+                "region": {
+                  "startLine": 189
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Missing Rent sysvar for init — Init pattern detected — verify Rent sysvar or space calculation is handled."
+          },
+          "properties": {
+            "fixHint": "Use init with space derived from INIT_SPACE and ensure rent-exempt funding.",
+            "helpUri": "https://anchor-security-prep.dev/rules/asp013",
+            "title": "Missing Rent sysvar for init"
+          },
+          "ruleId": "ASP013"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/anchor-security-prep/anchor-prep",
+          "name": "anchor-prep",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Signer authorization bypass — Sensitive instructions must require a Signer or signer=true constraint."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp001",
+              "id": "ASP001",
+              "name": "Missing signer validation",
+              "shortDescription": {
+                "text": "Sensitive instructions must require a Signer or signer=true constraint."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Account substitution — Raw AccountInfo bypasses Anchor type and owner checks."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp002",
+              "id": "ASP002",
+              "name": "Unchecked AccountInfo usage",
+              "shortDescription": {
+                "text": "Raw AccountInfo bypasses Anchor type and owner checks."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "PDA hijacking — PDAs must validate canonical bump to prevent seed collisions."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp003",
+              "id": "ASP003",
+              "name": "PDA seeds missing bump validation",
+              "shortDescription": {
+                "text": "PDAs must validate canonical bump to prevent seed collisions."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Rent theft / close bugs — Manual lamport manipulation without Anchor close constraint."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp004",
+              "id": "ASP004",
+              "name": "Unsafe account close pattern",
+              "shortDescription": {
+                "text": "Manual lamport manipulation without Anchor close constraint."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Privilege escalation — Authority accounts should use has_one or typed Signer binding."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp005",
+              "id": "ASP005",
+              "name": "Missing authority constraint",
+              "shortDescription": {
+                "text": "Authority accounts should use has_one or typed Signer binding."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Malicious CPI injection — CPI calls must validate program IDs explicitly."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp006",
+              "id": "ASP006",
+              "name": "Unvalidated CPI target",
+              "shortDescription": {
+                "text": "CPI calls must validate program IDs explicitly."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Silent write failures — Accounts written in handlers must be marked mut."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp007",
+              "id": "ASP007",
+              "name": "Missing mut on mutable account",
+              "shortDescription": {
+                "text": "Accounts written in handlers must be marked mut."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Sysvar spoofing — Sysvars should use typed Sysvar<T> wrappers."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp008",
+              "id": "ASP008",
+              "name": "Untyped sysvar account",
+              "shortDescription": {
+                "text": "Sysvars should use typed Sysvar<T> wrappers."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Token theft — TokenAccounts need mint/authority binding constraints."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp009",
+              "id": "ASP009",
+              "name": "Token account constraint mismatch",
+              "shortDescription": {
+                "text": "TokenAccounts need mint/authority binding constraints."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Owner confusion attacks — UncheckedAccount requires owner validation or CHECK docs."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp010",
+              "id": "ASP010",
+              "name": "Unchecked account ownership",
+              "shortDescription": {
+                "text": "UncheckedAccount requires owner validation or CHECK docs."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Unauthorized account init — init_if_needed must bind payer as Signer."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp011",
+              "id": "ASP011",
+              "name": "init_if_needed without payer signer",
+              "shortDescription": {
+                "text": "init_if_needed must bind payer as Signer."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Account data corruption — AccountLoader/zero-copy needs owner constraints."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp012",
+              "id": "ASP012",
+              "name": "Zero-copy account without owner check",
+              "shortDescription": {
+                "text": "AccountLoader/zero-copy needs owner constraints."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "fullDescription": {
+                "text": "Rent miscalculation — Init flows referencing space should consider Rent."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp013",
+              "id": "ASP013",
+              "name": "Missing Rent sysvar for init",
+              "shortDescription": {
+                "text": "Init flows referencing space should consider Rent."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Loader spoofing — AccountLoader should constrain program owner."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp014",
+              "id": "ASP014",
+              "name": "AccountLoader missing owner",
+              "shortDescription": {
+                "text": "AccountLoader should constrain program owner."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Unauthorized admin action — Admin-only instructions should require upgrade authority or admin signer."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp015",
+              "id": "ASP015",
+              "name": "Potential admin instruction exposure",
+              "shortDescription": {
+                "text": "Admin-only instructions should require upgrade authority or admin signer."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Compute exhaustion — Large Vec accounts without max_len may enable DoS."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp016",
+              "id": "ASP016",
+              "name": "Unbounded Vec in accounts",
+              "shortDescription": {
+                "text": "Large Vec accounts without max_len may enable DoS."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Compute DoS — Loops in handlers can exceed compute budget."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp017",
+              "id": "ASP017",
+              "name": "Loop in instruction handler",
+              "shortDescription": {
+                "text": "Loops in handlers can exceed compute budget."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "fullDescription": {
+                "text": "Frozen asset traps — Mint operations should consider freeze authority risks."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp018",
+              "id": "ASP018",
+              "name": "Token mint missing freeze authority check",
+              "shortDescription": {
+                "text": "Mint operations should consider freeze authority risks."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "PDA signature forgery — invoke_signed must use validated seed slices."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp019",
+              "id": "ASP019",
+              "name": "invoke_signed without seed validation",
+              "shortDescription": {
+                "text": "invoke_signed must use validated seed slices."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Double-spend patterns — Same account passed mut twice can cause logic bugs."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp020",
+              "id": "ASP020",
+              "name": "Duplicate mutable accounts",
+              "shortDescription": {
+                "text": "Same account passed mut twice can cause logic bugs."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Integer overflow — Use checked_add/sub/mul for token amounts and balances."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp021",
+              "id": "ASP021",
+              "name": "Unchecked arithmetic",
+              "shortDescription": {
+                "text": "Use checked_add/sub/mul for token amounts and balances."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Extension misconfig — Token-2022 extensions need explicit constraint review."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp022",
+              "id": "ASP022",
+              "name": "Token-2022 extension unchecked",
+              "shortDescription": {
+                "text": "Token-2022 extensions need explicit constraint review."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Zero-address bugs — Pubkey::default() used as valid key."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp023",
+              "id": "ASP023",
+              "name": "Pubkey default / zero key",
+              "shortDescription": {
+                "text": "Pubkey::default() used as valid key."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Wrong ATA acceptance — ATA derivations should validate wallet + mint."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp024",
+              "id": "ASP024",
+              "name": "Missing constraint on associated token",
+              "shortDescription": {
+                "text": "ATA derivations should validate wallet + mint."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Remaining accounts attack — remaining_accounts iteration without validation is risky."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp025",
+              "id": "ASP025",
+              "name": "Program unchecked in remaining accounts",
+              "shortDescription": {
+                "text": "remaining_accounts iteration without validation is risky."
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "fullDescription": {
+                "text": "Account type confusion — Custom accounts should use Anchor discriminator (#[account])."
+              },
+              "helpUri": "https://anchor-security-prep.dev/rules/asp026",
+              "id": "ASP026",
+              "name": "Missing discriminator on custom account",
+              "shortDescription": {
+                "text": "Custom accounts should use Anchor discriminator (#[account])."
+              }
+            }
+          ],
+          "version": "0.2.0"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

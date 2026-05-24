@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CopyButton } from "@/components/CopyButton";
 import { TrustStrip } from "@/components/TrustStrip";
 import { ECOSYSTEM_STATS } from "@/lib/incidents";
+import { FIXTURE_LABEL } from "@/lib/fixture-coverage";
 import { sampleReportUrl } from "@/lib/demo-routes";
 import { getDemoImpactStats } from "@/lib/sample-stats";
 
@@ -95,7 +96,7 @@ export default function HomePage() {
               },
               {
                 title: "Open & tunable",
-                body: "Baseline diff suppresses known noise. MIT license, 15/26 fixtures tested (M1: 26), growing rule set.",
+                body: `Baseline diff suppresses known noise. MIT license, ${FIXTURE_LABEL} fixtures tested (M1: 26), growing rule set.`,
                 href: "/rules",
               },
             ].map((item) => (

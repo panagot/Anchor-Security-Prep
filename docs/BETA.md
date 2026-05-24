@@ -17,7 +17,9 @@ I built **Anchor Security Prep** — an open-source (MIT) static analyzer that c
 - One-command CI setup (`anchor-prep init`)
 - Live dashboard with vulnerable vs clean comparison
 
-**Try it (no install):** https://anchor-security-prep.vercel.app/compare
+**Try it (no install):** https://anchor-security-prep.vercel.app/reviewer
+
+**Compare demo:** https://anchor-security-prep.vercel.app/compare
 
 **Repo:** https://github.com/panagot/Anchor-Security-Prep
 

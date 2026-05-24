@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 
+import { SAMPLE_REPORT_IDS } from "./demo-routes";
 import type { ScanReport } from "./types";
 import { isScanReport } from "./validate";
 
@@ -32,6 +33,24 @@ export function loadBundledReports(): ScanReport[] {
 
 export function getBundledReport(id: string): ScanReport | null {
   return loadBundledReports().find((r) => r.id === id) ?? null;
+}
+
+export function getBundledSampleReport(kind: "vulnerable" | "clean"): ScanReport | null {
+  const file = path.join(PUBLIC, "samples", `${kind}-report.json`);
+  if (!fs.existsSync(file)) return null;
+  try {
+    const data = JSON.parse(fs.readFileSync(file, "utf8"));
+    return isScanReport(data) ? data : null;
+  } catch {
+    return null;
+  }
+}
+
+export function getBundledSarif(id: string): string | null {
+  if (id !== SAMPLE_REPORT_IDS.vulnerable) return null;
+  const file = path.join(PUBLIC, "samples", "vulnerable-report.sarif");
+  if (!fs.existsSync(file)) return null;
+  return fs.readFileSync(file, "utf8");
 }
 
 export function isVercel(): boolean {

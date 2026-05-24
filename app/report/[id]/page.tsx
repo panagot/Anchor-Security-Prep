@@ -159,7 +159,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
       {isBundledReportId(id) && (
         <div className="panel border-[var(--amber)]/30">
           <div className="panel-inner text-xs text-[var(--ink-muted)]">
-            Bundled sample report — works without install. SARIF export requires a local scan.
+            Bundled sample report — works without install. JSON and SARIF export included for the vulnerable sample.
           </div>
         </div>
       )}
@@ -171,9 +171,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
         actions={
           <>
             <ExportButton id={id} format="json" label="Export JSON" />
-            {!isBundledReportId(id) && (
-              <ExportButton id={id} format="sarif" label="Export SARIF" />
-            )}
+            <ExportButton id={id} format="sarif" label="Export SARIF" />
           </>
         }
       />

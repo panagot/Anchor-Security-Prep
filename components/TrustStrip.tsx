@@ -1,10 +1,11 @@
+import { FIXTURE_LABEL } from "@/lib/fixture-coverage";
 import { ECOSYSTEM_STATS } from "@/lib/incidents";
 
 const ITEMS = [
   { value: String(ECOSYSTEM_STATS.rulesActive), label: "Active rules" },
   { value: "MIT", label: "License" },
   { value: "SARIF", label: "CI export" },
-  { value: "15/26", label: "Fixtures tested" },
+  { value: FIXTURE_LABEL, label: "Fixtures tested" },
 ] as const;
 
 export function TrustStrip() {

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getBundledReport } from "@/lib/static-data";
+import { getBundledReport, getBundledSarif } from "@/lib/static-data";
 import { getReportSarif, getReport } from "@/lib/store";
 
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -23,7 +23,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   }
 
   if (format === "sarif") {
-    const sarif = getReportSarif(id);
+    const sarif = getReportSarif(id) ?? getBundledSarif(id);
     if (!sarif) {
       return NextResponse.json(
         { error: "SARIF export available for locally scanned reports. Clone the repo and run: anchor-prep scan . --format sarif" },

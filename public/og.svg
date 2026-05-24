@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0a0a0c"/>
+  <path d="M0 0H1200V630H0V0Z" fill="url(#grid)" opacity="0.35"/>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" stroke="#ece8df" stroke-opacity="0.06"/>
+    </pattern>
+    <linearGradient id="glow" x1="900" y1="0" x2="200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e5a020" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#0a0a0c" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="72" y="72" width="56" height="56" stroke="#e5a020" stroke-width="2" fill="#e5a020" fill-opacity="0.14"/>
+  <text x="100" y="108" text-anchor="middle" fill="#e5a020" font-family="monospace" font-size="18" font-weight="700">ASP</text>
+  <text x="150" y="98" fill="#ece8df" font-family="system-ui,sans-serif" font-size="42" font-weight="800">Anchor Security Prep</text>
+  <text x="150" y="138" fill="#8a877f" font-family="monospace" font-size="18">Pre-audit static analysis · 26 rules · SARIF · MIT</text>
+  <rect x="72" y="190" width="320" height="150" stroke="#ff4d6d" stroke-opacity="0.5" fill="#ff4d6d" fill-opacity="0.08"/>
+  <text x="92" y="228" fill="#ff4d6d" font-family="monospace" font-size="14" letter-spacing="2">VULNERABLE</text>
+  <text x="92" y="290" fill="#ece8df" font-family="system-ui,sans-serif" font-size="64" font-weight="800">41</text>
+  <text x="92" y="322" fill="#8a877f" font-family="monospace" font-size="16">findings · 29 high/critical</text>
+  <rect x="420" y="190" width="320" height="150" stroke="#6fcf5f" stroke-opacity="0.5" fill="#6fcf5f" fill-opacity="0.08"/>
+  <text x="440" y="228" fill="#6fcf5f" font-family="monospace" font-size="14" letter-spacing="2">CLEAN REFERENCE</text>
+  <text x="440" y="290" fill="#ece8df" font-family="system-ui,sans-serif" font-size="64" font-weight="800">0</text>
+  <text x="440" y="322" fill="#8a877f" font-family="monospace" font-size="16">high/critical</text>
+  <text x="72" y="420" fill="#ece8df" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Catch exploit-class bugs before audit</text>
+  <text x="72" y="460" fill="#8a877f" font-family="monospace" font-size="18">anchor-security-prep.vercel.app/reviewer</text>
+</svg>

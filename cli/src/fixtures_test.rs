@@ -99,6 +99,42 @@ fn fixture_asp026_discriminator() {
 }
 
 #[test]
+fn fixture_asp005_authority_constraint() {
+    let report = scan_project(&fixture_dir("asp005")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP005"));
+}
+
+#[test]
+fn fixture_asp007_missing_mut() {
+    let report = scan_project(&fixture_dir("asp007")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP007"));
+}
+
+#[test]
+fn fixture_asp012_zero_copy() {
+    let report = scan_project(&fixture_dir("asp012")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP012"));
+}
+
+#[test]
+fn fixture_asp017_handler_loop() {
+    let report = scan_project(&fixture_dir("asp017")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP017"));
+}
+
+#[test]
+fn fixture_asp022_token2022() {
+    let report = scan_project(&fixture_dir("asp022")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP022"));
+}
+
+#[test]
+fn fixture_asp024_ata_constraint() {
+    let report = scan_project(&fixture_dir("asp024")).expect("scan");
+    assert!(report.findings.iter().any(|f| f.rule_id == "ASP024"));
+}
+
+#[test]
 fn all_rules_count_is_26() {
     let report = scan_project(
         &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../examples/vulnerable-program"),

@@ -35,7 +35,8 @@ Rust CLI + Next.js dashboard. 26 rules covering signers, PDAs, CPI, tokens, DoS,
 - **Live demo:** https://anchor-security-prep.vercel.app/
 - **Repo:** https://github.com/panagot/Anchor-Security-Prep
 - **Demo impact:** 41 findings on vulnerable example (7 critical, 22 high); 0 high/critical on clean reference
-- **15/26 rule fixtures** with `cargo test -p anchor-prep`
+- **21/26 rule fixtures** with `cargo test -p anchor-prep` (24 tests)
+- **Phase 1 benchmark:** coral-xyz/sealevel-attacks (50 findings, 35 files) — see [BENCHMARK_RESULTS.md](./BENCHMARK_RESULTS.md)
 - **CI:** GitHub Actions passing (18 Rust tests + Next.js build)
 - **Grant review path:** https://anchor-security-prep.vercel.app/reviewer
 
@@ -51,7 +52,7 @@ $10,000 USD — see [GRANT.md](./GRANT.md) for M1/M2/maintenance/adoption breakd
 
 | Milestone | Amount | Status |
 |-----------|--------|--------|
-| M1 CLI v1.0 | $2,500 | ~75% (15/26 fixtures, release pending) |
+| M1 CLI v1.0 | $2,500 | ~85% (21/26 fixtures, v0.2.0 release) |
 | M2 CI + dashboard | $3,000 | ~95% (live demo + /reviewer path) |
 | Maintenance 6mo | $2,500 | Planned |
 | Adoption | $2,000 | Planned |
@@ -70,4 +71,5 @@ $10,000 USD — see [GRANT.md](./GRANT.md) for M1/M2/maintenance/adoption breakd
 | Live demo | https://anchor-security-prep.vercel.app/ |
 | Grant review (~2 min) | https://anchor-security-prep.vercel.app/reviewer |
 | Compare demo | https://anchor-security-prep.vercel.app/compare |
+| Screenshot guide | [docs/SCREENSHOTS.md](./SCREENSHOTS.md) |
 | Grant doc | https://github.com/panagot/Anchor-Security-Prep/blob/main/docs/GRANT.md |

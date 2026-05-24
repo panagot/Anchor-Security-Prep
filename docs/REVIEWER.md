@@ -43,7 +43,7 @@ Open **[Integrations](https://anchor-security-prep.vercel.app/integrations)**:
 | Claim | Evidence |
 |-------|----------|
 | 26 rules | [Rule catalog](https://anchor-security-prep.vercel.app/rules) |
-| 15/26 fixtures today | `fixtures/asp*` + `cargo test -p anchor-prep` |
+| 21/26 fixtures today | `fixtures/asp*` + `cargo test -p anchor-prep` |
 | Accuracy methodology | [docs/BENCHMARK.md](./BENCHMARK.md) · [docs/BENCHMARK_RESULTS.md](./BENCHMARK_RESULTS.md) |
 | Exploit mapping | [docs/INCIDENTS.md](./INCIDENTS.md) |
 | Grant budget | [docs/GRANT.md](./GRANT.md) |
@@ -54,7 +54,7 @@ Open **[Integrations](https://anchor-security-prep.vercel.app/integrations)**:
 
 - Not a replacement for professional audit
 - Not formal verification — static heuristics with known FP tradeoffs
-- Not all rules have golden fixtures yet (15/26 today, 26/26 by M1)
+- Not all rules have golden fixtures yet (21/26 today, 26/26 by M1)
 
 ---
 

@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { FIXTURE_LABEL } from "@/lib/fixture-coverage";
+
 export function Footer() {
   return (
     <footer className="mt-16 border-t border-[var(--line)] py-10">
@@ -35,7 +37,7 @@ export function Footer() {
           </a>
         </nav>
         <p className="text-[10px] text-[var(--ink-faint)]">
-          v0.2 · 26 rules · 15/26 fixtures ·{" "}
+          v0.2 · 26 rules · {FIXTURE_LABEL} fixtures ·{" "}
           <a href="https://anchor-security-prep.vercel.app" className="hover:text-[var(--amber)]">
             Live demo
           </a>

@@ -6,7 +6,7 @@
 .anchor-prep/tmp-*/
 .anchor-prep/reports/
 /reports/
-
+.benchmark/
 # Node / Next.js (dashboard at repo root)
 node_modules/
 .next/

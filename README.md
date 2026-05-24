@@ -51,7 +51,7 @@ It is designed for developers who need **audit-grade signal without audit-grade 
 | **GitHub Actions** | One-command CI scaffold via `anchor-prep init` |
 | **Web dashboard** | Interactive report explorer with filterable findings and code context |
 | **Rule documentation** | Per-rule pages with vulnerable vs hardened patterns |
-| **Regression fixtures** | 15/26 golden tests today (M1 target: all 26) |
+| **Regression fixtures** | 21/26 golden tests (24 Rust tests; M1 target: all 26) |
 
 ---
 

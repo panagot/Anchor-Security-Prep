@@ -106,7 +106,7 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 - Clean example: 0 high/critical
 - Published release binaries (linux/mac/win)
 
-**Status:** ~90% complete — 15/26 rule fixtures, dashboard live, baseline diff fixed
+**Status:** ~90% complete — 21/26 rule fixtures, dashboard live, Phase 1 benchmark, v0.2.0 release
 
 ### Milestone 2 — CI + dashboard v1.0 ($3,000)
 
