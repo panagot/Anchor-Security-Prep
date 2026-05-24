@@ -203,8 +203,9 @@ export default function ReviewerPage() {
           <h2 className="display text-base font-bold text-[var(--ink)]">Honest limitations</h2>
           <p>
             Not a replacement for professional audit. Static heuristics with documented false-positive tradeoffs.
-            {FIXTURE_LABEL} rules have golden tests today (26/26 by M2 finish). Some secure reference programs in external
-            benchmarks may trigger heuristic findings — baseline diff is the mitigation.
+            {FIXTURE_LABEL} rules have golden tests today — five remaining (ASP013, ASP014, ASP016, ASP018, ASP020) close
+            by M2 finish (26/26). Some secure reference programs in external benchmarks may trigger heuristic findings —
+            baseline diff is the mitigation.
           </p>
         </div>
       </section>

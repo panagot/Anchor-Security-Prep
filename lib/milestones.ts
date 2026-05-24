@@ -18,6 +18,9 @@ export type Milestone = {
   demoLinks: { label: string; href: string }[];
 };
 
+/** Golden regression fixtures — keep in sync with fixtures/asp* and fixtures_test.rs */
+export const FIXTURE_STATUS = "21/26 today · 26/26 by M2 finish";
+
 export const M1: Milestone = {
   id: "m1",
   title: "Milestone 1 — Begin",
@@ -26,9 +29,10 @@ export const M1: Milestone = {
   progress: 85,
   statusLabel: "~85% complete (prototype shipped)",
   summary:
-    "Kick off the grant with a working CLI, live public website, and CI scaffolding. Indie devs and grant reviewers can scan Anchor programs, explore findings on the web, and scaffold GitHub Actions — before v1.0 polish and the 12-month upkeep period in Milestone 2.",
+    "Kick off the grant with a working CLI, live public website, and CI scaffolding. 21 of 26 rules already have golden regression fixtures; remaining five (ASP013, ASP014, ASP016, ASP018, ASP020) close during M2.",
   deliverables: [
     { label: "Rust CLI with 26 Anchor security rules", done: true, detail: "ASP001–ASP026 active" },
+    { label: "21/26 golden regression fixtures", done: true, detail: "cargo test -p anchor-prep — 24 tests" },
     { label: "JSON, Markdown, and SARIF 2.1 export", done: true, detail: "Bundled SARIF on sample report" },
     { label: "Core commands: scan, rules, doctor, baseline, init", done: true },
     { label: "Public website / dashboard on Vercel", done: true, detail: "anchor-security-prep.vercel.app" },
@@ -42,7 +46,7 @@ export const M1: Milestone = {
   acceptance: [
     { label: "Website live and accessible without install", done: true, detail: "Vercel production deploy" },
     { label: "Compare demo: 40+ findings vs 0 high/critical", done: true },
-    { label: "cargo test -p anchor-prep passes", done: true, detail: "24 tests, 21/26 fixtures" },
+    { label: "cargo test -p anchor-prep passes", done: true, detail: "24 tests · 21/26 fixtures" },
     { label: "anchor-prep init scaffolds CI workflow", done: true },
     { label: "SARIF export on bundled sample report", done: true },
   ],
@@ -65,34 +69,35 @@ export const M2: Milestone = {
   title: "Milestone 2 — Finish",
   subtitle: "Production v1.0 + 12 months dedicated upkeep — $5,000 on acceptance",
   budget: "$5,000",
-  progress: 45,
+  progress: 40,
   statusLabel: "Paid on v1.0 completion + upkeep start",
   summary:
-    "Complete production v1.0 across CLI, website, and CI. Then deliver 12 months of dedicated upkeep: issue triage, false-positive tuning, Anchor version compatibility, documentation, and adoption outreach. This milestone closes the grant and begins the maintenance SLA.",
+    "Ship production v1.0: complete all 26/26 fixtures, publish a public accuracy benchmark on 3–5 OSS Anchor repos, add 10–15 high-impact rules from recent audit reports, and begin 12 months of dedicated upkeep (issue triage, FP tuning, Anchor 0.30+ compat, adoption).",
   deliverables: [
-    { label: "CLI v1.0 — 26/26 rule fixtures with golden tests", done: false, detail: "21/26 today" },
-    { label: "Accuracy benchmark on 3+ open-source Anchor repos", done: false, detail: "Phase 1 done; expand in M2" },
+    { label: "26/26 rule fixtures with golden regression tests", done: false, detail: "21/26 today — ASP013, 014, 016, 018, 020 remaining" },
+    { label: "Add 10–15 new high-impact rules (with fixtures)", done: false, detail: "Remaining accounts, account reload after CPI, Token-2022 hooks, admin migration" },
+    { label: "Public accuracy benchmark report (3–5 OSS Anchor repos)", done: false, detail: "FP/FN notes published in BENCHMARK_RESULTS.md" },
+    { label: "Per-rule confidence scores + config/allow suppression", done: false, detail: "High/medium/low + .anchor-prep.toml suppressions" },
     { label: "Audit checklist export from reports", done: false },
-    { label: "Website v1.0 — polished reviewer, M1/M2, and docs pages", done: true, detail: "Core pages live; polish ongoing" },
-    { label: "End-to-end PR → scan → SARIF → dashboard flow documented", done: true },
-    { label: "40–50 rules target with audit-report grounding", done: false, detail: "26 rules today; expand during upkeep" },
-    { label: "12 months dedicated upkeep — issue triage & bug fixes", done: false, detail: "Starts on M2 acceptance" },
-    { label: "12 months — false-positive tuning & Anchor compat", done: false, detail: "Monthly review cycle; 2-week compat SLA" },
-    { label: "12 months — documentation, releases, adoption outreach", done: false, detail: "Tutorials, Discord, hackathon integration" },
+    { label: "Website v1.0 — reviewer, milestones, integrations, rule docs", done: true, detail: "Core pages live; polish ongoing" },
+    { label: "v1.0 release binaries on GitHub", done: false, detail: "v0.2.0 today" },
+    { label: "VS Code extension scaffolding (syntax + scan-on-save hook)", done: false, detail: "Optional high-leverage IDE surface" },
+    { label: "12 months upkeep — issue triage, bugs, Anchor 0.30+ compat", done: false, detail: "48h critical SLA; 2-week minor compat" },
+    { label: "12 months upkeep — FP tuning, docs, adoption outreach", done: false, detail: "Monthly review; hackathon/Discord integration" },
   ],
   acceptance: [
-    { label: "26/26 rule fixtures; cargo test -p anchor-prep passes", done: false },
-    { label: "Vulnerable ≥40 findings / ≥29 high+critical; clean 0 high/critical", done: true },
-    { label: "Website v1.0 live with /reviewer, /m1, /m2, /integrations", done: true },
-    { label: "Published v1.0 release binaries on GitHub", done: false, detail: "v0.2.0 today; v1.0 at finish" },
-    { label: "12-month upkeep plan published in repo (CONTRIBUTING + CHANGELOG)", done: false },
-    { label: "Adoption metrics tracked (stars, CI integrations, repos scanned)", done: false },
+    { label: "26/26 fixtures; cargo test -p anchor-prep passes", done: false },
+    { label: "Public benchmark report on ≥3 OSS Anchor repos with FP/FN notes", done: false },
+    { label: "Vulnerable ≥40 / ≥29 high+critical; clean 0 high/critical", done: true },
+    { label: "Website v1.0 live (/reviewer, /m1, /m2, /integrations)", done: true },
+    { label: "v1.0 release binaries published", done: false },
+    { label: "12-month upkeep plan documented; adoption metrics tracked", done: false },
   ],
   outcomes: [
-    "Production-ready tool indie devs trust before mainnet or audit",
-    "Website remains the primary discovery and demo surface for the ecosystem",
+    "Production-ready tool with published accuracy data indie devs can trust",
+    "Expanded rule set grounded in Zellic, OtterSec, Neodyme, and 2025–2026 post-mortems",
     "12 months of dedicated maintenance keeps rules accurate as Anchor evolves",
-    "Adoption grows through hackathons, CI integrations, and community FP feedback",
+    "Adoption grows through CI integrations, Solana Stack, and hackathon defaults",
   ],
   demoLinks: [
     { label: "Grant walkthrough", href: "/reviewer" },
@@ -106,4 +111,12 @@ export const GRANT_BUDGET = {
   m1: "$5,000",
   m2: "$5,000",
   upkeepMonths: 12,
+} as const;
+
+export const ADOPTION_TARGETS = {
+  stars: 75,
+  ciIntegrations: 15,
+  programsScanned: 40,
+  findingsResolved: 25,
+  note: "or equivalent traction (Solana Stack mention, Colosseum default recommendation)",
 } as const;

@@ -45,6 +45,6 @@ export const ECOSYSTEM_STATS = {
   auditCostRange: "$15K–$100K+",
   rulesActive: 26,
   rulesTarget: 50,
-  fixtureCount: 15,
+  fixtureCount: 21,
   fixtureTarget: 26,
 } as const;

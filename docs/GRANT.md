@@ -24,9 +24,13 @@ Anchor Security Prep is a **free, MIT-licensed pre-audit static analyzer** for A
 | **Rules** | 26 active (ASP001–ASP026) |
 | **Proof** | 41 findings / 29 high+critical on vulnerable sample; 0 high/critical on clean reference |
 
+| **Fixtures** | 21/26 golden regression tests today; 26/26 by M2 finish |
+
 **Why fund now:** Audits remain inaccessible for indie devs and hackathon teams. We have a working prototype with CLI, **public website**, SARIF, and CI scaffolding. Funding delivers production v1.0 and **12 months of dedicated upkeep** — two milestones at $5,000 each.
 
 **Public-good positioning:** Complement STRIDE and professional audits — reduce audit scope, catch issues in CI, lower overall ecosystem exploit risk.
+
+**Rule sources:** Rules are derived from public material including [Sealevel Attacks](https://github.com/coral-xyz/sealevel-attacks), Zellic/OtterSec/Neodyme audit patterns, and 2025–2026 exploit post-mortems — mapped in [EXPLOITS.md](./EXPLOITS.md) and [INCIDENTS.md](./INCIDENTS.md).
 
 ---
 
@@ -149,7 +153,7 @@ Anchor-Security-Prep/
 | Release | v0.2.0 | GitHub Releases — linux/mac/win binaries |
 | Vulnerable demo | 41 findings, 29 high/critical | https://anchor-security-prep.vercel.app/compare |
 | Clean reference | 0 high/critical | Same URL |
-| Rule fixtures | 21/26 (M1 target: 26/26) | `cargo test -p anchor-prep` — 24 tests |
+| Rule fixtures | 21/26 today (ASP013, 014, 016, 018, 020 remaining) | `cargo test -p anchor-prep` — 24 tests |
 | External benchmark | 50 findings, 35 files | [BENCHMARK_RESULTS.md](./BENCHMARK_RESULTS.md) — coral-xyz/sealevel-attacks |
 | CI | Passing | `.github/workflows/ci.yml` |
 | SARIF export | Working on bundled sample | Sample report → Export SARIF |
@@ -223,34 +227,36 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 
 ## 9. Milestone 2 — Finish ($5,000)
 
-**Goal:** Ship production v1.0 across CLI, website, and CI. Begin **12 months of dedicated upkeep** — the maintenance and adoption work that keeps the tool accurate and adopted as Anchor evolves.
+**Goal:** Ship production v1.0 across CLI, website, and CI. Publish public accuracy data. Begin **12 months of dedicated upkeep**.
 
 **Deliverables:**
 
 | # | Deliverable | Status |
 |---|-------------|--------|
-| 1 | CLI v1.0 — 26/26 rule fixtures with golden tests | ◐ 21/26 |
-| 2 | Accuracy benchmark on 3+ open-source Anchor repos | ◐ Phase 1 done |
-| 3 | Audit checklist export from reports | ◐ Planned |
-| 4 | Website v1.0 polish (reviewer, milestones, docs) | ◐ Core live |
-| 5 | v1.0 release binaries on GitHub | ◐ v0.2.0 today |
-| 6 | Expand to 40–50 rules grounded in audit reports | ◐ Planned |
-| 7 | **12 months upkeep** — issue triage & bug fixes | Starts on M2 acceptance |
-| 8 | **12 months upkeep** — false-positive tuning & Anchor compat | Monthly cycle; 2-week compat SLA |
-| 9 | **12 months upkeep** — docs, releases, adoption outreach | Hackathons, Discord, CI integrations |
+| 1 | 26/26 rule fixtures with golden regression tests | ◐ 21/26 today |
+| 2 | Add 10–15 new high-impact rules (with fixtures) | ◐ Planned — remaining accounts, account reload after CPI, Token-2022 hooks, admin migration |
+| 3 | **Public accuracy benchmark report** (3–5 OSS Anchor repos, FP/FN notes) | ◐ Phase 1 (sealevel-attacks) done |
+| 4 | Per-rule confidence scores + config/allow suppression | ◐ Planned |
+| 5 | Audit checklist export from reports | ◐ Planned |
+| 6 | Website v1.0 (reviewer, milestones, integrations, rule docs) | ◐ Core live |
+| 7 | v1.0 release binaries on GitHub | ◐ v0.2.0 today |
+| 8 | VS Code extension scaffolding (scan-on-save hook) | ◐ Optional |
+| 9 | **12 months upkeep** — triage, bugs, Anchor 0.30+ compat | Starts on M2 acceptance |
+| 10 | **12 months upkeep** — FP tuning, docs, adoption outreach | Monthly cycle |
 
 **Acceptance criteria (M2 payout):**
 
 1. 26/26 rule fixtures; `cargo test -p anchor-prep` passes
-2. Vulnerable ≥40 findings / ≥29 high+critical; clean 0 high/critical
-3. Website v1.0 with /reviewer, /m1, /m2, /integrations live
-4. Published v1.0 release binaries
-5. 12-month upkeep plan documented; adoption metrics tracked
+2. Public benchmark report on ≥3 OSS Anchor repos with documented FP/FN notes
+3. Vulnerable ≥40 findings / ≥29 high+critical; clean 0 high/critical
+4. Website v1.0 with /reviewer, /m1, /m2, /integrations live
+5. Published v1.0 release binaries
+6. 12-month upkeep plan documented; adoption metrics tracked
 
 **12-month upkeep SLA:**
 
 - Critical bugs: 48-hour response
-- Anchor minor version compatibility: within 2 weeks of release
+- Anchor 0.30+ and minor version compatibility: tested within 2 weeks of release
 - False positive triage: monthly review cycle
 - Documentation and release notes updated with each rule change
 
@@ -258,10 +264,12 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 
 | Metric | Target (12 mo) | Tracking |
 |--------|----------------|----------|
-| GitHub stars | 100 | GitHub API |
-| Public CI integrations | 20 | GitHub search `anchor-prep` in workflows |
-| Programs scanned (unique repos) | 50 | Action logs + community reports |
-| Findings resolved by users | 25 | Issue label `fixed-by-user` |
+| GitHub stars | ≥75 | GitHub API |
+| Public CI integrations | ≥15 | GitHub search `anchor-prep` in workflows |
+| Programs scanned (unique repos) | ≥40 | Action logs + community reports |
+| Findings resolved by users | ≥25 | Issue label `fixed-by-user` |
+
+*Or equivalent traction* — e.g. Solana Stack tutorial mention, Colosseum/hackathon default recommendation.
 
 **Status:** Paid on v1.0 completion + upkeep period start
 
@@ -289,12 +297,15 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 
 **Solo indie developer** with Solana ecosystem experience building developer tools as public goods.
 
-**Edge over competition:**
+**Domain credibility:**
 
-1. **Shipped before funding** — v0.2.0 demonstrates delivery: CLI, 26 rules, SARIF, live dashboard, CI templates, GitHub release with binaries. Not a slide deck — working software.
-2. **Reviewer-first UX** — `/reviewer`, `/compare`, `/m1`, `/m2` let SF evaluators verify value in 2 minutes without Rust toolchain.
-3. **Pre-audit positioning** — Complements STRIDE and audits; targets the underserved indie/hackathon segment commercial tools ignore.
-4. **Open governance** — MIT license, CONTRIBUTING.md, rule bounties, openness to co-maintainers.
+1. **Shipped before funding** — v0.2.0 is working software: Rust CLI (26 rules), SARIF export, public website, CI templates, and GitHub release with linux/mac/win binaries — not a concept deck.
+2. **Audit-informed rules** — Rule catalog mapped to [Sealevel Attacks](https://github.com/coral-xyz/sealevel-attacks), public Zellic/OtterSec/Neodyme patterns, and 2025–2026 post-mortems ([EXPLOITS.md](./EXPLOITS.md), [INCIDENTS.md](./INCIDENTS.md)). Phase 1 benchmark published on coral-xyz/sealevel-attacks.
+3. **Open-source public goods track record** — Full-stack Rust + Next.js tool MIT-licensed from day one; CONTRIBUTING.md and rule fixture workflow ready for co-maintainers.
+4. **Reviewer-first delivery** — Built `/reviewer`, `/compare`, `/m1`, `/m2` so SF evaluators verify value in 2 minutes without a Rust toolchain — uncommon for solo tooling grants.
+5. **Ecosystem participation** — Active in Solana developer communities; tool positioned for hackathon/Colosseum pre-submission workflows.
+
+*[Optional — add if applicable: links to Anchor programs you have built or shipped publicly.]*
 
 **Why not wait for commercial tools?** Sec3 X-Ray and similar products serve funded protocols. Indie devs need a free, CI-native alternative that embeds security into daily workflow — not a sales call.
 
@@ -307,7 +318,7 @@ Static analyzers live or die on signal-to-noise. Grant-funded work includes:
 | False positives kill adoption | Medium | Baseline diff, monthly tuning, public benchmark with honest FP notes |
 | Solo maintainer bus factor | Medium | CONTRIBUTING.md, rule bounties, co-maintainer outreach |
 | Overlap with emerging OSS tools | Low | SARIF + CI scaffold + fix guidance + pre-audit positioning |
-| Anchor version churn | High | Version matrix in CI; 2-week compat SLA |
+| Anchor version churn (incl. 0.30+) | High | Version matrix in CI; Anchor 0.30+ compat tested within 2 weeks of release |
 | Heuristic misses novel exploits | Medium | Position as pre-audit complement; expand rules from audit reports |
 
 ---
