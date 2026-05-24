@@ -115,7 +115,7 @@ export default function HomePage() {
 
       <section className="panel">
         <div className="panel-inner space-y-4">
-          <h2 className="display text-xl font-bold">Grant demo path (~2 min)</h2>
+          <h2 className="display text-xl font-bold">Quick tour (~2 min)</h2>
           <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {

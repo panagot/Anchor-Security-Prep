@@ -57,7 +57,7 @@ export const M1: Milestone = {
     "Open-source repo and release binaries establish trust before v1.0 finish",
   ],
   demoLinks: [
-    { label: "Grant walkthrough", href: "/reviewer" },
+    { label: "Overview", href: "/reviewer" },
     { label: "Website compare", href: "/compare" },
     { label: "Rule catalog", href: "/rules" },
     { label: "CI integrations", href: "/integrations" },
@@ -100,7 +100,7 @@ export const M2: Milestone = {
     "Adoption grows through CI integrations, Solana Stack, and hackathon defaults",
   ],
   demoLinks: [
-    { label: "Grant walkthrough", href: "/reviewer" },
+    { label: "Overview", href: "/reviewer" },
     { label: "Compare demo", href: "/compare" },
     { label: "Benchmark results", href: "https://github.com/panagot/Anchor-Security-Prep/blob/main/docs/BENCHMARK_RESULTS.md" },
   ],

@@ -151,7 +151,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
         <span>›</span>
         <span className="text-[var(--ink-muted)]">Report {id.slice(0, 8)}</span>
         <span className="ml-auto flex flex-wrap gap-2">
-          <Link href="/reviewer" className="btn btn-ghost text-[10px]">Grant walkthrough</Link>
+          <Link href="/reviewer" className="btn btn-ghost text-[10px]">Overview</Link>
           <Link href="/integrations" className="btn btn-ghost text-[10px]">CI setup →</Link>
         </span>
       </nav>

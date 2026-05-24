@@ -80,7 +80,7 @@ export function MilestoneView({ milestone, other }: { milestone: Milestone; othe
         subtitle={milestone.subtitle}
         actions={
           <div className="text-right">
-            <p className="label text-[var(--amber)]">Grant budget</p>
+            <p className="label text-[var(--amber)]">Milestone budget</p>
             <p className="display text-2xl font-bold text-[var(--ink)]">{milestone.budget}</p>
             <p className="mt-1 text-xs text-[var(--phosphor)]">{milestone.statusLabel}</p>
           </div>
@@ -143,7 +143,7 @@ export function MilestoneView({ milestone, other }: { milestone: Milestone; othe
 
       <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--line)] pt-6">
         <Link href="/reviewer" className="btn btn-ghost text-[10px]">
-          ← Grant walkthrough
+          ← Overview
         </Link>
         {other && (
           <Link href={`/${other.id}`} className="btn btn-ghost text-[10px]">

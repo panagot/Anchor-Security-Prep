@@ -6,7 +6,7 @@ import { M1, M2 } from "@/lib/milestones";
 export const metadata: Metadata = {
   title: "Milestone 1 — Begin",
   description:
-    "Grant M1: CLI beta, public website, CI foundation — $5,000 on acceptance.",
+    "M1 Begin: CLI beta, public website, and CI foundation.",
 };
 
 export default function M1Page() {

@@ -12,7 +12,7 @@ export function DemoModeBanner() {
           <code className="text-[var(--amber)]">cargo build -p anchor-prep</code> for live scans.
         </p>
         <Link href="/reviewer" className="btn btn-ghost shrink-0 text-[10px]">
-          Grant walkthrough
+          Overview
         </Link>
       </div>
     </div>

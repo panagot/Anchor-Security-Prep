@@ -44,12 +44,12 @@ We take signal quality seriously. If a rule fires incorrectly:
 
 ## Governance
 
-Currently solo-maintained with openness to co-maintainers after grant funding. Major decisions discussed in GitHub Issues/Discussions. All merges require passing CI (`cargo test`, `npm run build`).
+Currently solo-maintained with openness to co-maintainers. Major decisions discussed in GitHub Issues/Discussions. All merges require passing CI (`cargo test`, `npm run build`).
 
 ## Code of conduct
 
 Be respectful. Security research and constructive criticism welcome. No harassment, spam, or disclosure of unpatched live exploits without responsible coordination.
 
-## Grant alignment
+## Roadmap alignment
 
-Contributions during the grant period focus on: accuracy benchmarks, rule expansion (→ 50 rules), Anchor version compatibility, and adoption (hackathon/CI integrations).
+Contributions focus on: accuracy benchmarks, rule expansion (→ 50 rules), Anchor version compatibility, and adoption (hackathon/CI integrations).

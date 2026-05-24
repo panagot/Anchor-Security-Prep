@@ -192,7 +192,7 @@ function ScanPageInner() {
 
               <Link href="/reviewer" className="btn btn-ghost text-[10px]">
 
-                Grant walkthrough
+                Overview
 
               </Link>
 
