@@ -11,6 +11,8 @@ const links = [
   { href: "/compare", label: "Compare" },
   { href: "/rules", label: "Rules" },
   { href: "/integrations", label: "CI" },
+  { href: "/m1", label: "M1" },
+  { href: "/m2", label: "M2" },
 ];
 
 export function Navbar() {

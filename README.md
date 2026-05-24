@@ -22,7 +22,7 @@
   <a href="#rules">Rules</a> ·
   <a href="#ci-integration">CI</a> ·
   <a href="docs/GRANT.md">Grant</a> ·
-  <a href="docs/APPLICATION.md">Apply</a>
+  <a href="https://anchor-security-prep.vercel.app/reviewer">Review</a>
 </p>
 
 ---
@@ -147,7 +147,7 @@ npm run dev
 3. Leave Build Command and Output Directory **empty** (defaults)
 4. Deploy
 
-> **404 fix:** See [docs/VERCEL.md](docs/VERCEL.md) — if Root Directory is set to `web`, clear it and redeploy.
+> **Deploy note:** Leave **Root Directory** empty (repo root). If you previously set it to `web`, clear it and redeploy.
 
 The hosted demo serves bundled sample reports — no CLI required for `/compare` and `/rules`.
 
@@ -250,9 +250,9 @@ cargo run -p anchor-prep -- rules --json > public/rules.json
 
 This project is developed as a public good for the Solana ecosystem, aligned with the [Solana Foundation Developer Tooling grant](https://solana.org/grants-funding) program.
 
-See [docs/GRANT.md](docs/GRANT.md) for milestones, budget breakdown, and adoption targets.
+**Reviewer path (~2 min):** [anchor-security-prep.vercel.app/reviewer](https://anchor-security-prep.vercel.app/reviewer) · **M1 / M2:** [/m1](https://anchor-security-prep.vercel.app/m1) · [/m2](https://anchor-security-prep.vercel.app/m2)
 
-**Grant application draft:** [docs/APPLICATION.md](docs/APPLICATION.md) · **Benchmark:** [docs/BENCHMARK.md](docs/BENCHMARK.md) · **Exploit mapping:** [docs/EXPLOITS.md](docs/EXPLOITS.md)
+See [docs/GRANT.md](docs/GRANT.md) for the full proposal · [docs/BENCHMARK_RESULTS.md](docs/BENCHMARK_RESULTS.md) · [docs/INCIDENTS.md](docs/INCIDENTS.md)
 
 ---
 
@@ -265,5 +265,5 @@ MIT © Anchor Security Prep Contributors. See [LICENSE](LICENSE).
 <p align="center">
   <a href="https://github.com/panagot/Anchor-Security-Prep">GitHub</a> ·
   <a href="docs/GRANT.md">Grant proposal</a> ·
-  <a href="docs/schema.md">Report schema</a>
+  <a href="https://anchor-security-prep.vercel.app/reviewer">Grant review</a>
 </p>

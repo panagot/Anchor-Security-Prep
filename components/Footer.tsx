@@ -16,6 +16,8 @@ export function Footer() {
           </Link>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-[var(--ink-faint)]" aria-label="Footer">
+          <Link href="/m1" className="hover:text-[var(--amber)]">M1 CLI</Link>
+          <Link href="/m2" className="hover:text-[var(--amber)]">M2 CI + dashboard</Link>
           <Link href="/compare" className="hover:text-[var(--amber)]">Compare</Link>
           <Link href="/rules" className="hover:text-[var(--amber)]">Rules</Link>
           <Link href="/integrations" className="hover:text-[var(--amber)]">CI setup</Link>
